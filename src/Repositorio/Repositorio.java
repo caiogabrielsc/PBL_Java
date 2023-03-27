@@ -31,7 +31,20 @@ public class Repositorio implements IRepositorio {
         return 0;
         }
 
+    @Override
+    public boolean editNamePerson(int idbuscado, String newName) {
+       for (Person person : list){
+           //System.out.println(person.getName());
+           if(person.getId() == idbuscado){person.setName(newName); return true;}
+       }
+        return false;
+    }
 
-
+    public  void listPerson(){
+        System.out.println("---------------------");
+        for (Person person : list) {
+            System.out.println("id:" + person.getId() + " nome:" + person.getName()+"\n");
+        }
+    }
 
 }

@@ -9,38 +9,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-    Person person = new Person(10);
-    rp.savePerson(person);
+        Person person1 = new Person(1, "Caio");
+        rp.savePerson(person1);
+        Person person2 = new Person(2, "Lara");
+        rp.savePerson(person2);
+        Person person3 = new Person(3, "Alice");
+        rp.savePerson(person3);
 
-    System.out.println(rp.findPersonById(10));
+        //rp.listPerson();
 
+        rp.editNamePerson(2, "Joao");
 
-
-    }
-
-
-    /*
-    public static void popularArray(){
-        Person person = new Person(10);
-        rp.savePerson(person);
-
-        person.setId(20);
-        rp.savePerson(person);
-
-        person.setId(30);
-        rp.savePerson(person);
+        rp.listPerson();
 
     }
-    public static void listPerson(){
-
-        List<Person> lista = new ArrayList<Person>();
-        lista = rp.listPerson();
-
-        for (Person person : lista) {
-            System.out.println(person.getId());
-
-        }
-    }
-
-     */
 }

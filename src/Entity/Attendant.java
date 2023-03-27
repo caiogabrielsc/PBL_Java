@@ -4,8 +4,8 @@ public class Attendant extends Person{
 
     private String password;
 
-    public Attendant(int id) {
-        super(id);
+    public Attendant(int id, String name) {
+        super(id, name);
     }
 
     @Override

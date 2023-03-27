@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Base do projeto&#10;Base da estrutura de classe Person&#10;Função adicionar person na arraylist&#10;Função findbyid na arraylist" />
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Base do projeto&#10;Commit teste">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJETO3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PBLJava.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Attendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Attendant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Technician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +45,19 @@
     </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b9a1854f-f427-4f42-83f5-d7014180dcde" />
+        <option name="url" value="https://github.com/caiogabrielsc/PBL_Java.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -59,7 +83,20 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="PROJETO3" />
+      <module name="PBLJava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="PBLJava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="PBLJava" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -86,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679868419045</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Base do projeto&#10;Commit teste">
+      <created>1679868953999</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679868953999</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Base do projeto&#10;Base da estrutura de classe Person&#10;Função adicionar person na arraylist&#10;Função findbyid na arraylist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base do projeto&#10;Base da estrutura de classe Person&#10;Função adicionar person na arraylist&#10;Função findbyid na arraylist" />
+    <MESSAGE value="Base do projeto&#10;Commit teste" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base do projeto&#10;Commit teste" />
   </component>
 </project>
