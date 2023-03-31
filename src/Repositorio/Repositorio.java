@@ -19,6 +19,12 @@ public class Repositorio implements IRepositorio {
         return true;
     }
 
+    public boolean deletePerson(int id){
+        for (Person person : list){
+            if(person.getId() == id){list.remove(person);return true;}}
+        return false;
+    }
+
     @Override
     public int findPersonById(int id) {
 
@@ -34,11 +40,37 @@ public class Repositorio implements IRepositorio {
     @Override
     public boolean editNamePerson(int idbuscado, String newName) {
        for (Person person : list){
-           //System.out.println(person.getName());
            if(person.getId() == idbuscado){person.setName(newName); return true;}
        }
         return false;
     }
+    /*
+    public boolean editAgePerson(int idbuscado, String newAge) {
+        for (Person person : list){
+            if(person.getAge() == idbuscado){person.setAge(newAge); return true;}
+        }
+        return false;
+    }
+    public boolean editCpfPerson(int idbuscado, String newCpf) {
+        for (Person person : list){
+            if(person.getCpf() == idbuscado){person.setCpf(newCpf); return true;}
+        }
+        return false;
+    }
+    public boolean editEmailPerson(int idbuscado, String newEmail) {
+        for (Person person : list){
+            if(person.getEmail() == idbuscado){person.setEmail(newEmail); return true;}
+        }
+        return false;
+    }
+    public boolean editAdressPerson(int idbuscado, String newAdress) {
+        for (Person person : list){
+            if(person.getAdress() == idbuscado){person.setAdress(newAdress); return true;}
+        }
+        return false;
+    }
+
+     */
 
     public  void listPerson(){
         System.out.println("---------------------");
@@ -46,5 +78,6 @@ public class Repositorio implements IRepositorio {
             System.out.println("id:" + person.getId() + " nome:" + person.getName()+"\n");
         }
     }
+
 
 }

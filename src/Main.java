@@ -16,11 +16,7 @@ public class Main {
         Person person3 = new Person(3, "Alice");
         rp.savePerson(person3);
 
-        //rp.listPerson();
 
-        rp.editNamePerson(2, "Joao");
-
-        rp.listPerson();
 
     }
 }
