@@ -1,11 +1,11 @@
 import Entity.Person;
-import Repositorio.Repositorio;
-
-import java.util.ArrayList;
-import java.util.List;
+import RepositorioOs.Os;
+import RepositorioOs.RepositorioOs;
+import RepositorioPessoa.RepositorioPerson;
 
 public class Main {
-    static Repositorio rp = new Repositorio();
+    static RepositorioPerson rp = new RepositorioPerson();
+    static RepositorioOs ro = new RepositorioOs();
 
     public static void main(String[] args) {
 
@@ -15,6 +15,10 @@ public class Main {
         rp.savePerson(person2);
         Person person3 = new Person(3, "Alice");
         rp.savePerson(person3);
+
+        Os os = new Os(person2,"trocar hdd",0 );
+        ro.saveOS(os);
+        ro.listOs();
 
 
 

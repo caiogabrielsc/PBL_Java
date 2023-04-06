@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Edição Nome Pessoa&#10;Listar pessoas">
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person">
+      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/IRepositorioOs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/IRepositorioPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679882207352</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person">
+      <created>1680279685788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680279685788</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +146,7 @@
     <MESSAGE value="Base do projeto&#10;Base da estrutura de classe Person&#10;Função adicionar person na arraylist&#10;Função findbyid na arraylist" />
     <MESSAGE value="Base do projeto&#10;Commit teste" />
     <MESSAGE value="Edição Nome Pessoa&#10;Listar pessoas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edição Nome Pessoa&#10;Listar pessoas" />
+    <MESSAGE value="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person" />
   </component>
 </project>

@@ -1,8 +1,7 @@
-package Repositorio;
-import java.util.List;
+package RepositorioPessoa;
 import  Entity.Person;
 
-public interface IRepositorio {
+public interface IRepositorioPerson {
 
     // AQUI VAI TER SÓ CHAMADA PARA AS FUNÇOES FEITAS NO REPOSITÓRIO.JAVA
     public boolean savePerson(Person person);

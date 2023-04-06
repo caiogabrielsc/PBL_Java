@@ -1,10 +1,10 @@
-package Repositorio;
+package RepositorioPessoa;
 import Entity.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repositorio implements IRepositorio {
+public class RepositorioPerson implements IRepositorioPerson {
 
     List<Person> list = new ArrayList<Person>();
 
