@@ -5,10 +5,21 @@ import Entity.Person;
 public class Os {
     protected Person client;
 
-    public Os(Person client, String description, int status) {
+    public Os(int id, Person client, String description, int status) {
+        this.id = id;
         this.client = client;
         this.description = description;
         this.status = status;
+    }
+
+    protected  int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     protected String description;

@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person">
-      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/IRepositorioOs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Estrutura base OS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositorio/IRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/IRepositorioPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositorio/Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/Os.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680279685788</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Estrutura base OS">
+      <created>1680794333554</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680794333554</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +152,7 @@
     <MESSAGE value="Base do projeto&#10;Commit teste" />
     <MESSAGE value="Edição Nome Pessoa&#10;Listar pessoas" />
     <MESSAGE value="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complemento dos atributos da Person&#10;Função delete Person&#10;Funções de alterarar Person" />
+    <MESSAGE value="Estrutura base OS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estrutura base OS" />
   </component>
 </project>
