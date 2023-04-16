@@ -47,12 +47,34 @@ public class RepositorioOs implements IRepositorioOs {
     }
 
     public void listOs() {
-        System.out.println("---------------------");
         for (Os os : OsList) {
-            System.out.println("cliente associado:" + os.client.getName() + " descricao:" + os.getDescription() + "\n");
+            System.out.println("---------------------");
+            System.out.println("id:" + os.getId() + " | cliente:" + os.client.getName() + " | descricao:" + os.getDescription());
+        }System.out.println("---------------------");
+    }
+
+    public boolean checkOs(){
+        for (Os os: OsList){
+            if(os.status == 1){
+                return false;   // tem alguma OS em serviço
+            }
+        }return true; // tecnico está disponível
+    }
+
+    public void startOs(){
+        int counter = 0;
+        for(Os os : OsList){
+            counter+=1;
+            if (os.status == 0){
+                os.status = 1;
+                System.out.println("\nIniciada a primeira da fila, OS id:" + counter);
+            }
         }
     }
 
+    public int returnLenght(){
+        return OsList.size();
+    }
 
 
 }
