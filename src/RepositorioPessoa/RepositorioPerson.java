@@ -19,23 +19,23 @@ public class RepositorioPerson implements IRepositorioPerson {
         return true;
     }
 
+    @Override
+    public int findPersonById(int id) {
+        return 0;
+    }
+
     public boolean deletePerson(int id){
         for (Person person : list){
             if(person.getId() == id){list.remove(person);return true;}}
         return false;
     }
 
-    @Override
-    public int findPersonById(int id) {
-
+    public Person returnPersonById(int id){
         int position = 0;
         for (Person person : list) {
-            if (person.getId() == id) {
-                position += 1;
-                return position;}
-        }
-        return 0;
-        }
+            if (person.getId() == id) {return person;}
+        }return null;
+    }
 
     @Override
     public boolean editNamePerson(int idbuscado, String newName) {
@@ -74,11 +74,14 @@ public class RepositorioPerson implements IRepositorioPerson {
      */
 
     public  void listPerson(){
-        System.out.println("---------------------");
         for (Person person : list) {
-            System.out.println("id:" + person.getId() + " nome:" + person.getName()+"\n");
-        }
+            System.out.println("---------------------");
+            System.out.println("id:" + person.getId() + " nome:" + person.getName());
+        }System.out.println("---------------------");
     }
 
+    public int returnLenght(){
+        return list.size();
+    }
 
 }

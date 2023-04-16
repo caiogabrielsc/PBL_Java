@@ -11,7 +11,7 @@ public class Main {
         RepositorioOs ro = new RepositorioOs();
 
         //  ****************** MENU PRINCIPAL *************************
-        Scanner menu = new Scanner (System.in);
+        Scanner menu = new Scanner(System.in);
         while (true) {
             System.out.print("\nMENU GERAL:\n");
             System.out.print("1-Sou Atendente.\n");
@@ -28,41 +28,51 @@ public class Main {
                 //   ********************  MENU ATENDENTE *******************
                 case 1:
                     System.out.print("------------MENU ATENDENTE---------\n");
-                    Scanner menuAtendente = new Scanner (System.in);
-                    while (true) {
-                        System.out.print("1-Cadastrar Cliente\n");
+                    Scanner menuAtendente = new Scanner(System.in);
+                    while (opcao == 1) {       /// while do atendente
+                        System.out.print("\n1-Cadastrar Cliente\n");
                         System.out.print("2-Abrir OS\n");
-                        System.out.print("3-Voltar para o menu principal\n");
+                        System.out.print("3-Listar Clientes\n");
+                        System.out.print("10-Voltar para o menu principal\n");
                         System.out.print("Digite uma opção: ");
                         int opcaoAtendente = menuAtendente.nextInt();
-                        if (opcaoAtendente == 3) {
-                            menuAtendente.close();
-                        }
+
                         switch (opcaoAtendente) {
-                            case 1:
-                                System.out.print("\nCliente Cadastrado");
+                            case 1:      // REGISTER CLIENT
+                                Client clientGenerico = new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1) );
+                                rp.savePerson(clientGenerico);
+                                System.out.print("\nCliente Cadastrado\n");
                                 break;
                             case 2:
+                                rp.listPerson();
+                                System.out.println("\nDigite o id do cliente para abrir OS:");
+                                Scanner idbuscado = new Scanner(System.in);
+                                int num = idbuscado.nextInt();
+
+                                Os os = new Os((rp.returnPersonById(num)), 1, "trocar placa mae", 0, 0);
+                                ro.saveOS(os);
                                 System.out.print("\nOS aberta\n");
                                 break;
-                            default:
-                                System.out.print("\nOpção Inválida!");
-                                break;}
-                        break;
+                            case 3:     // LIST CLIENTS
+                                rp.listPerson();
+                                break;
+                            case 10:
+                                // SAIR DO MENU ATENDENTE
+                                opcao = 999;
+                                break;
+                        }
+
+                        /*
+                        case 2:
+                            System.out.print("\nMENU TECNICO\n");
+                            break;
+                        case 3:
+                            System.out.print("\nMENU GERENTE\n");
+                            break;
+                        default:
+                            System.out.print("\nOpção Inválida!");
+                            break;
+                       */
+
                     }
-                    break;
-                case 2:
-                    System.out.print("\nMENU TECNICO\n");
-                    break;
-                case 3:
-                    System.out.print("\nMENU GERENTE\n");
-                    break;
-                default:
-                    System.out.print("\nOpção Inválida!");
-                    break;
-            }
-        }}}
-
-
-
-
+            }}}}
