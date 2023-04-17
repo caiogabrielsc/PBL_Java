@@ -73,11 +73,18 @@ public class RepositorioPerson implements IRepositorioPerson {
 
      */
 
-    public  void listPerson(){
+    public  boolean listPerson() {
+        if (list.isEmpty()) {
+            System.out.println("\nNão tem clientes cadastrados.\n");
+            return false;
+        }
+        System.out.println("          Lista de clientes:");
         for (Person person : list) {
-            System.out.println("---------------------");
+            System.out.println("-------------------------------------");
             System.out.println("id:" + person.getId() + " nome:" + person.getName());
-        }System.out.println("---------------------");
+        }
+        System.out.println("-------------------------------------\n");
+        return true;
     }
 
     public int returnLenght(){

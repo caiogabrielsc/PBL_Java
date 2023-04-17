@@ -4,7 +4,6 @@ import java.util.Scanner;
 import RepositorioOs.Os;
 import RepositorioOs.RepositorioOs;
 import RepositorioPessoa.RepositorioPerson;
-import org.w3c.dom.ls.LSOutput;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,14 +24,15 @@ public class Main {
                 System.out.print("\nAté logo!");
                 menu.close();
             }
+            // SWITCH MENU GERAL
             switch (opcao) {
                 //   ********************  MENU ATENDENTE *******************
                 case 1:
-                    System.out.print("------------MENU ATENDENTE---------\n");
                     Scanner menuAtendente = new Scanner(System.in);
                     boolean continuar = true;
                     while (continuar) {
-                        System.out.print("\n1-Cadastrar Cliente\n2-Abrir OS\n3-Listar Clientes\n");
+                        System.out.print("------------MENU ATENDENTE---------\n");
+                        System.out.print("\n1-Cadastrar Cliente\n2-Abrir OS\n3-Listar Clientes\n4-Listar OS\n");
                         System.out.print("10-Voltar para o menu principal\nDigite uma opção: ");
                         int opcaoAtendente = menuAtendente.nextInt();
                         switch (opcaoAtendente) {
@@ -42,11 +42,19 @@ public class Main {
                                 System.out.print("\nCliente Cadastrado\n");
                                 break;
                             case 2:      // ABRIR OS
-                                rp.listPerson();
+                                // list person retorna falso se n tiver cliente
+                                if(rp.listPerson() == false){
+                                    System.out.println("Logo não podemos abrir OS");
+                                    break;
+                                };
                                 System.out.println("\nDigite o id do cliente para abrir OS:");
                                 Scanner idbuscado = new Scanner(System.in);
                                 int num = idbuscado.nextInt();
 
+                                if(rp.returnPersonById(num) == null){
+                                    System.out.println("Não tem esse cliente na lista\n");
+                                    break;
+                                }
                                 Os os = new Os((rp.returnPersonById(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0);
                                 ro.saveOS(os);
                                 System.out.print("\nOS aberta\n");
@@ -54,11 +62,15 @@ public class Main {
                             case 3:
                                 rp.listPerson();
                                 break;
+                            case 4:
+                                ro.listOs();
+                                break;
                             case 10:   // SAIR DO MENU ATENDENTE
                                 continuar = false;
                                 break;
                         }
                     }
+                    break;
                 case 2:
                     System.out.print("------------MENU TECNICO---------\n");
                     Scanner menuTecnico = new Scanner(System.in);
@@ -74,11 +86,13 @@ public class Main {
                                 ro.listOs();
                                 break;
                             case 2:   // INICIAR OS
+                                // botar check os dentro de startos no repositorio
                                 if(ro.checkOs()){     //  checa se já tem alguma em andamento
                                     ro.startOs();
-                                }else{System.out.println("Tecnico ocupado");};
-
-
+                                }break;
+                            case 3:   // FINALIZAR OS
+                                ro.finalizeOS();
+                                break;
                             case 10:
                                 continuar = false;
                                 break;
