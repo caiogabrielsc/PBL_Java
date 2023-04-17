@@ -7,6 +7,10 @@ public class RepositorioOs implements IRepositorioOs {
 
     List<Os> OsList = new ArrayList<Os>();
 
+    public int returnLenght() {
+        return OsList.size();
+    }
+
     public boolean saveOS(Os os) {
         try {
             OsList.add(os);
@@ -47,60 +51,56 @@ public class RepositorioOs implements IRepositorioOs {
     }
 
     public boolean listOs() {
-        if(OsList.isEmpty() == true){
+        if (OsList.isEmpty() == true) {
             System.out.println("Não tem OS cadastradas");
-            return false;}
+            return false;
+        }
         System.out.println("            Lista de OS:");
         for (Os os : OsList) {
             System.out.println("---------------------------------------------------------------");
-            System.out.println("idOs:" + os.getId() + " | cliente:" + os.client.getName() + " | descricao:" + os.getDescription());
-        }System.out.println("---------------------------------------------------------------\n");
+            System.out.println("idOs:" + os.getId() + " | cliente:" + os.client.getName() + " | status:" + os.getStatus());
+        }
+        System.out.println("---------------------------------------------------------------\n");
 
         return true;
-    }
-
-    public boolean checkOs(){
-        for (Os os: OsList){
-            if(os.status == 1){
-                System.out.println("XXXTecnico já está em serviço em serviço, não pode iniciar OS.");
-                return false;
-            }
-        }return true; // tecnico está disponível
     }
 
     public boolean startOs() {
-        if(checkOs() == false){
-            System.out.println("tecnico indisponivel");
+        if (OsList.isEmpty()) {
+            System.out.println("\nNão temos OS cadastradas\n");
             return false;
-        }else{  //tecnico disponivel
-            for (Os os : OsList) {
-                if (os.status == 0) {
-                    os.status = 1;
-                    System.out.println("\nIniciada a primeira na fila, OS id:" + os.getId());}
-                }
-            }
-        return true;
-    }
-
-    public boolean finalizeOS(){
-    if(checkOs()){
-        System.out.println("Tecnico não tem nenhuma os em andamento.");
-        return false;
-    }else{
-        for( Os os : OsList){
-            if(os.status == 1){os.status=2;    //acha a os que está em andamento
-                System.out.println("\nFinalizada a os" + os.status + " ,Tecnico livre");
-                System.out.println("\nPara pagamento, Atendente deve gerar fatura");
-                return true;
         }
+        for (Os os : OsList) {
+            if (os.getStatus() == 1) {   //procura uma os que já está em andamento
+                System.out.println("Tecnico já está em serviço, não pode iniciar OS.");
+                return false;
+            }
+        }
+        for (Os os : OsList) {
+            if (os.getStatus() == 0) {
+                os.setStatus(1);
+                System.out.println("\nIniciada a primeira da fila, OS id:" + os.getId());
+                return true;
+            }
+        }
+        return false;
     }
-}
-    return false;
-}
 
-    public int returnLenght(){
-        return OsList.size();
+    public boolean finalizeOS() {
+        if (OsList.isEmpty()) {
+            System.out.println("\nNão temos OS cadastradas\n");
+            return false;
+        }
+        for (Os os : OsList) {
+            if (os.getStatus() == 1) { //procura uma os que já está em andamento
+                os.setStatus(2);
+                System.out.println("\nFinalizada a os com ID " + os.getId() + ", tecnico está disponível.");
+                System.out.println("\nPara pagamento o Atendente deve gerar fatura.");
+                return true;
+            }}
+        System.out.println("\nNão foi encontrada nenhuma OS em andamento para poder finalizar");
+        return false;
     }
 
-
 }
+

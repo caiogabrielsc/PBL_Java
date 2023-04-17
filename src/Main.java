@@ -10,7 +10,7 @@ public class Main {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
 
-        //  ****************** MENU PRINCIPAL *************************
+
         Scanner menu = new Scanner(System.in);
         while (true) {
             System.out.print("\nMENU GERAL:\n");
@@ -72,11 +72,11 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.print("------------MENU TECNICO---------\n");
                     Scanner menuTecnico = new Scanner(System.in);
                     continuar = true;
                     while (continuar) {       /// while do atendente
-                        System.out.print("\n1-Listar OS\n2-Iniciar OS\n");
+                        System.out.print("------------MENU TECNICO---------\n");
+                        System.out.print("\n1-Listar OS\n2-Iniciar OS\n3-Finalizar OS\n");
                         System.out.print("10-Voltar para o menu principal\n");
                         System.out.print("Digite uma opção: ");
                         int opcaoTecnico = menuTecnico.nextInt();
@@ -85,12 +85,10 @@ public class Main {
                             case 1:
                                 ro.listOs();
                                 break;
-                            case 2:   // INICIAR OS
-                                // botar check os dentro de startos no repositorio
-                                if(ro.checkOs()){     //  checa se já tem alguma em andamento
-                                    ro.startOs();
-                                }break;
-                            case 3:   // FINALIZAR OS
+                            case 2:
+                                ro.startOs();
+                                break;
+                            case 3:
                                 ro.finalizeOS();
                                 break;
                             case 10:
