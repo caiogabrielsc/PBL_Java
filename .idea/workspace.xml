@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Desenvolvimento funções Tecnico">
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Tecnico pode inicar e finalizar os corretamente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/Os.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681750729862</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Tecnico pode inicar e finalizar os corretamente">
+      <created>1681755283071</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681755283071</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +200,7 @@
     <MESSAGE value="Alteração na Main" />
     <MESSAGE value="Funcionalidades para Atendente" />
     <MESSAGE value="Desenvolvimento funções Tecnico" />
-    <option name="LAST_COMMIT_MESSAGE" value="Desenvolvimento funções Tecnico" />
+    <MESSAGE value="Tecnico pode inicar e finalizar os corretamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tecnico pode inicar e finalizar os corretamente" />
   </component>
 </project>

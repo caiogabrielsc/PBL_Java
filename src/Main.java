@@ -13,20 +13,12 @@ public class Main {
 
         Scanner menu = new Scanner(System.in);
         while (true) {
-            System.out.print("\nMENU GERAL:\n");
-            System.out.print("1-Sou Atendente.\n");
-            System.out.print("2-Sou Tecnico. \n");
-            System.out.print("3-Sou Gerente.\n");
-            System.out.print("4-Sair do sistema.\n");
-            System.out.print("Digite uma opção: ");
+            System.out.print("\nMENU GERAL:\n1-Sou Atendente.\n2-Sou Tecnico.\n3-Sou Gerente.\n");
+            System.out.print("4-Sair do sistema.\nDigite uma opção: ");
             int opcao = menu.nextInt();
-            if (opcao == 4) {
-                System.out.print("\nAté logo!");
-                menu.close();
-            }
-            // SWITCH MENU GERAL
+            if (opcao == 4) {System.out.print("\nAté logo!");menu.close();}
+
             switch (opcao) {
-                //   ********************  MENU ATENDENTE *******************
                 case 1:
                     Scanner menuAtendente = new Scanner(System.in);
                     boolean continuar = true;
@@ -36,36 +28,21 @@ public class Main {
                         System.out.print("10-Voltar para o menu principal\nDigite uma opção: ");
                         int opcaoAtendente = menuAtendente.nextInt();
                         switch (opcaoAtendente) {
-                            case 1:      // REGISTER CLIENT
+                            case 1:
                                 Client clientGenerico = new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1));
                                 rp.savePerson(clientGenerico);
                                 System.out.print("\nCliente Cadastrado\n");
                                 break;
-                            case 2:      // ABRIR OS
-                                // list person retorna falso se n tiver cliente
-                                if(rp.listPerson() == false){
-                                    System.out.println("Logo não podemos abrir OS");
+                            case 2:
+                                ro.createOS(rp,ro);
                                     break;
-                                };
-                                System.out.println("\nDigite o id do cliente para abrir OS:");
-                                Scanner idbuscado = new Scanner(System.in);
-                                int num = idbuscado.nextInt();
-
-                                if(rp.returnPersonById(num) == null){
-                                    System.out.println("Não tem esse cliente na lista\n");
-                                    break;
-                                }
-                                Os os = new Os((rp.returnPersonById(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0);
-                                ro.saveOS(os);
-                                System.out.print("\nOS aberta\n");
-                                break;
                             case 3:
                                 rp.listPerson();
                                 break;
                             case 4:
                                 ro.listOs();
                                 break;
-                            case 10:   // SAIR DO MENU ATENDENTE
+                            case 10:
                                 continuar = false;
                                 break;
                         }

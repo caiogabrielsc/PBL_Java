@@ -2,17 +2,53 @@ package RepositorioOs;
 
 import Entity.Person;
 
+import java.time.LocalTime;
+
 public class Os {
     protected Person client;
 
     protected double finalvalue;
 
-    public Os(Person client, int id, String description, int status, double finalvalue) {
+    protected long createtime;
+
+    public long getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(long createtime) {
+        this.createtime = createtime;
+    }
+
+    protected long starttime;
+
+    protected long finishtime;
+
+    public long getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(long starttime) {
+        this.starttime = starttime;
+    }
+
+    public long getFinishtime() {
+        return finishtime;
+    }
+
+    public void setFinishtime(long finishtime) {
+        this.finishtime = finishtime;
+    }
+
+    public Os(Person client, int id, String description, int status, double finalvalue, long createtime, long starttime, long finishtime) {
         this.client = client;
         this.id = id;
         this.description = description;
         this.status = status;
         this.finalvalue = finalvalue;
+        this.createtime = createtime;
+        this.starttime = starttime;
+        this.finishtime = finishtime;
+
     }
 
 
