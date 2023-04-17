@@ -2,10 +2,11 @@ package RepositorioOs;
 
 import Entity.Person;
 
-import java.time.LocalTime;
 
 public class Os {
     protected Person client;
+
+    protected int satisfaction;
 
     protected double finalvalue;
 
@@ -31,6 +32,14 @@ public class Os {
         this.starttime = starttime;
     }
 
+    public int getSatisfaction() {
+        return satisfaction;
+    }
+
+    public void setSatisfaction(int satisfaction) {
+        this.satisfaction = satisfaction;
+    }
+
     public long getFinishtime() {
         return finishtime;
     }
@@ -39,12 +48,15 @@ public class Os {
         this.finishtime = finishtime;
     }
 
-    public Os(Person client, int id, String description, int status, double finalvalue, long createtime, long starttime, long finishtime) {
+
+
+    public Os(Person client, int id, String description, int status, double finalvalue,int satisfaction, long createtime, long starttime, long finishtime) {
         this.client = client;
         this.id = id;
         this.description = description;
         this.status = status;
         this.finalvalue = finalvalue;
+        this.satisfaction = satisfaction;
         this.createtime = createtime;
         this.starttime = starttime;
         this.finishtime = finishtime;

@@ -1,27 +1,18 @@
 package RepositorioOs;
 import Entity.Person;
-
-import java.time.Duration;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import java.time.LocalTime;
-
-import RepositorioPessoa.IRepositorioPerson;
 import RepositorioPessoa.RepositorioPerson;
-import RepositorioPessoa.RepositorioPerson;
+import RepositorioProduto.RepositorioProduto;
 
-public class RepositorioOs implements IRepositorioOs {
+
+public class RepositorioOs { //implements IRepositorioOs {
 
     List<Os> OsList = new ArrayList<Os>();
 
-
-
-
     public boolean createOS(RepositorioPerson rp, RepositorioOs ro){
-        if(rp.listPerson() == false){
+        if(!rp.listPerson()){ //lista de pessoas vazia
             System.out.println("Logo não podemos abrir OS");
             return false;};
 
@@ -34,7 +25,7 @@ public class RepositorioOs implements IRepositorioOs {
             return false;
         }
 
-        Os os = new Os((rp.returnPersonById(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0,System.currentTimeMillis(),0, 0);
+        Os os = new Os((rp.returnPersonById(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0,10, System.currentTimeMillis(),0, 0);
         saveOS(os);
         System.out.print("\nOS aberta.\n");
         return true;
@@ -114,7 +105,7 @@ public class RepositorioOs implements IRepositorioOs {
                 os.setStatus(1);
                 os.setStarttime(System.currentTimeMillis());
                 System.out.println("\nIniciada a primeira da fila, OS id:" + os.getId());
-                System.out.println("\nO tempo de espera foi: " + (os.getStarttime() - os.getCreatetime())/1000 + "segundos." );
+                System.out.println("O tempo de espera foi: " + (os.getStarttime() - os.getCreatetime())/1000 + "segundos." );
 
                 return true;
             }
@@ -123,7 +114,7 @@ public class RepositorioOs implements IRepositorioOs {
         return false;
     }
 
-    public boolean finalizeOS() {
+    public boolean finalizeOS(RepositorioProduto rpdt) {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
             return false;
@@ -132,9 +123,21 @@ public class RepositorioOs implements IRepositorioOs {
             if (os.getStatus() == 1) { //procura uma os que já está em andamento
                 os.setStatus(2);
                 os.setFinishtime(System.currentTimeMillis());
-                System.out.println("\nFinalizada a os com ID " + os.getId() + ", tecnico está disponível.");
-                System.out.println("\nPara pagamento o Atendente deve gerar fatura.");
-                System.out.println("\nO tempo de espera foi: " + (os.getFinishtime() - os.getStarttime())/1000 + "segundos.");
+
+                rpdt.listProduct();
+                System.out.println("\nDigite o id do que vc utilizou nessa OS:");
+
+                int idProduto = ((new Scanner(System.in)).nextInt());
+
+                // SETA O VALOR FINAL E REDUZ O ESTOQUE EM UMA UNIDADE
+                os.setFinalvalue(rpdt.returnProdutoById(idProduto).getValue());
+                int novaqtd = (rpdt.returnProdutoById(idProduto).getQtd() - 1);
+                rpdt.returnProdutoById(idProduto).setQtd(novaqtd);
+
+                System.out.println("\nFinalizada a OS com ID " + os.getId() + ", tecnico está disponível.");
+                System.out.println("Para realizar o pagamento de R$"+os.getFinalvalue()+" o Atendente deve gerar fatura.");
+                System.out.println("Agora tem "+rpdt.returnProdutoById(idProduto).getQtd()+ "un desse produto no estoque.");
+                System.out.println("O tempo de duração do serviço foi: " + (os.getFinishtime() - os.getStarttime())/1000 + "segundos.");
                 return true;
             }}
         System.out.println("\nNão foi encontrada nenhuma OS em andamento para poder finalizar");

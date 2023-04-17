@@ -1,4 +1,5 @@
 package RepositorioPessoa;
+import Entity.Client;
 import Entity.Person;
 
 import java.util.ArrayList;
@@ -18,6 +19,13 @@ public class RepositorioPerson implements IRepositorioPerson {
         return true;
     }
 
+    public boolean createPerson(Person person){
+        Client clientGenerico = new Client((returnLenght() + 1), "ClienteGenerico" + (returnLenght() + 1));
+        savePerson(clientGenerico);
+        System.out.print("\nCliente Cadastrado\n");
+        return true;
+    }
+
     @Override
     public int findPersonById(int id) {
         return 0;
@@ -30,7 +38,6 @@ public class RepositorioPerson implements IRepositorioPerson {
     }
 
     public Person returnPersonById(int id){
-        int position = 0;
         for (Person person : list) {
             if (person.getId() == id) {return person;}
         }return null;

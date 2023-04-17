@@ -1,17 +1,27 @@
 import Entity.Client;
 import java.util.Scanner;
 
-import RepositorioOs.Os;
 import RepositorioOs.RepositorioOs;
 import RepositorioPessoa.RepositorioPerson;
+import RepositorioProduto.RepositorioProduto;
+
 
 public class Main {
     public static void main(String[] args) {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
+        RepositorioProduto rpdt = new RepositorioProduto();
 
 
         Scanner menu = new Scanner(System.in);
+
+        //iniciar com os aberta:
+
+        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+        ro.createOS(rp,ro);
+        ro.createOS(rp,ro);
+
         while (true) {
             System.out.print("\nMENU GERAL:\n1-Sou Atendente.\n2-Sou Tecnico.\n3-Sou Gerente.\n");
             System.out.print("4-Sair do sistema.\nDigite uma opção: ");
@@ -29,9 +39,7 @@ public class Main {
                         int opcaoAtendente = menuAtendente.nextInt();
                         switch (opcaoAtendente) {
                             case 1:
-                                Client clientGenerico = new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1));
-                                rp.savePerson(clientGenerico);
-                                System.out.print("\nCliente Cadastrado\n");
+                                rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
                                 break;
                             case 2:
                                 ro.createOS(rp,ro);
@@ -66,8 +74,10 @@ public class Main {
                                 ro.startOs();
                                 break;
                             case 3:
-                                ro.finalizeOS();
+                                ro.finalizeOS(rpdt);
                                 break;
+                            case 8:
+                                rpdt.listProduct();
                             case 10:
                                 continuar = false;
                                 break;

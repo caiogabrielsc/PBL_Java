@@ -1,7 +1,17 @@
-package RepositorioProdutos;
+package RepositorioProduto;
 
-public class Produtos {
+public class Produto {
+    protected int id;
     protected String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     protected int qtd;
     protected double value;
 
@@ -30,7 +40,8 @@ public class Produtos {
         this.value = value;
     }
 
-    public Produtos(String name, int qtd, double value) {
+    public Produto(int id, String name, int qtd, double value) {
+        this.id = id;
         this.name = name;
         this.qtd = qtd;
         this.value = value;
