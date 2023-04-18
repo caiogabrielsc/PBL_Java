@@ -86,7 +86,7 @@ public class RepositorioProdutoServico {
         System.out.println("\nDigite o novo valor do produto:");
         int newvalue = ((new Scanner(System.in)).nextInt());
         rpdt.returnProdutoById(idProduto).setValue(newvalue);
-        System.out.println("\nEstoque alterado.");
+        System.out.println("\nValor alterado.");
         return true;
 
     }

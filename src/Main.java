@@ -14,12 +14,6 @@ public class Main {
 
         Scanner menu = new Scanner(System.in);
 
-        //iniciar com os aberta:
-        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
-        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
-        ro.createOS(rp,ro);
-        ro.createOS(rp,ro);
-
         while (true) {
             System.out.print("\n------------------------MENU GERAL-----------------------\n[1]-Sou Atendente.   [2]-Sou Tecnico.   [3]-Sou Gerente.\n");
             System.out.print("[10]-Sair do sistema.\nDigite uma opção: ");
@@ -106,8 +100,10 @@ public class Main {
                                 break;
                             case 2:
                                 rpdt.changeStock(rpdt);
+                                break;
                             case 3:
                                 rpdt.changeValue(rpdt);
+                                break;
                             case 10:
                                 continuar = false;
                                 break;
