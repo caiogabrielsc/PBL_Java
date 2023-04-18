@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Estoque totalmente implementado">
-      <change afterPath="$PROJECT_DIR$/src/RepositorioEstoque/Servico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/Os.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProdutoServico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioProduto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioProduto/RepositorioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProduto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681774378447</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Estoque totalmente implementado">
+      <created>1681780197350</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681780197350</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -3,12 +3,13 @@ package RepositorioEstoque;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class RepositorioProduto {
+public class RepositorioProdutoServico {
     List<Produto> ProdutoList = new ArrayList<Produto>();
     List<Servico> ServiceList = new ArrayList<Servico>();
 
-    Produto ram = new Produto(1,"Ram",10,20);
+    Produto ram = new Produto(1,"Ram",3,20);
     Produto placamae = new Produto(2,"Placa mae", 10, 100);
     Produto fonte = new Produto(3,"Fonte", 10, 30);
     Produto placadevideo = new Produto(4,"Placa de video", 10, 100);
@@ -54,7 +55,6 @@ public class RepositorioProduto {
         System.out.println("---------------------------");
     }
 
-
     public Produto returnProdutoById(int idbuscado){
         for (Produto i : ProdutoList) {
             if (i.getId() == idbuscado) {return i;}
@@ -66,6 +66,31 @@ public class RepositorioProduto {
             if (i.getId() == idbuscado) {return i;}
         }return null;
     }
+
+    public boolean changeStock(RepositorioProdutoServico rpdt){
+        rpdt.listProduct();
+        System.out.println("\nDigite o id do produto que vc deseja alterar o estoque:");
+        int idProduto = ((new Scanner(System.in)).nextInt());
+        System.out.println("\nDigite o novo valor do estoque:");
+        int newqtd = ((new Scanner(System.in)).nextInt());
+        rpdt.returnProdutoById(idProduto).setQtd(newqtd);
+        System.out.println("\nEstoque alterado.");
+        return true;
+
+    }
+
+    public boolean changeValue(RepositorioProdutoServico rpdt){
+        rpdt.listProduct();
+        System.out.println("\nDigite o id do produto que vc deseja alterar o preço:");
+        int idProduto = ((new Scanner(System.in)).nextInt());
+        System.out.println("\nDigite o novo valor do produto:");
+        int newvalue = ((new Scanner(System.in)).nextInt());
+        rpdt.returnProdutoById(idProduto).setValue(newvalue);
+        System.out.println("\nEstoque alterado.");
+        return true;
+
+    }
+
 
 
 }

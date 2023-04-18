@@ -4,20 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import RepositorioPessoa.RepositorioPerson;
-import RepositorioEstoque.RepositorioProduto;
+import RepositorioEstoque.RepositorioProdutoServico;
 
 
-public class RepositorioOs { //implements IRepositorioOs {
+public class RepositorioOs implements IRepositorioOs {
 
     List<Os> OsList = new ArrayList<Os>();
 
     public boolean createOS(RepositorioPerson rp, RepositorioOs ro) {
         if (!rp.listPerson()) { //lista de pessoas vazia
             System.out.println("Logo não podemos abrir OS");
-            return false;
-        }
-        ;
-
+            return false;};
         System.out.println("\nDigite o id do cliente para abrir OS:");
         Scanner idbuscado = new Scanner(System.in);
         int num = idbuscado.nextInt();
@@ -116,7 +113,7 @@ public class RepositorioOs { //implements IRepositorioOs {
         return false;
     }
 
-    public boolean finalizeOS(RepositorioProduto rpdt) {
+    public boolean finalizeOS(RepositorioProdutoServico rpdt) {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
             return false;
@@ -134,10 +131,16 @@ public class RepositorioOs { //implements IRepositorioOs {
                     int idProduto = ((new Scanner(System.in)).nextInt());
 
                     // SETA O VALOR FINAL E REDUZ O ESTOQUE EM UMA UNIDADE
+                    if(rpdt.returnProdutoById(idProduto).getQtd() == 0){
+                        System.out.println("Provavelmente vc não usou esse produto pq n tem ele no estoque.");
+                        return false;
+                    }
                     os.setFinalvalue(rpdt.returnProdutoById(idProduto).getValue());
                     int novaqtd = (rpdt.returnProdutoById(idProduto).getQtd() - 1);
                     rpdt.returnProdutoById(idProduto).setQtd(novaqtd);
                     System.out.println("\nAgora tem " + rpdt.returnProdutoById(idProduto).getQtd() + "un desse produto no estoque.");
+                    if((rpdt.returnProdutoById(idProduto).getQtd() < 3)){
+                        System.out.println("O estoque desse produto está acabando, o Gerente deve repor!");}
 
                 } else {
                     rpdt.listService();
@@ -182,6 +185,69 @@ public class RepositorioOs { //implements IRepositorioOs {
         }
         System.out.println("\nNão foi encontrada OS aguardando pagamento.");
         return false;
+    }
+
+    public boolean cancelOS(){
+        if (OsList.isEmpty()) {
+            System.out.println("\nNão temos OS cadastradas\n");
+            return false;
+        }
+        System.out.println("Digite o id da OS que vc quer cancelar:");
+        int idcancelar = ((new Scanner(System.in)).nextInt());
+        for (Os os : OsList) {
+            if (os.getId() == idcancelar) {
+
+                os.setStatus(4);
+                System.out.println("\nA OS id "+idcancelar+" teve seu status definido como cancelado.");
+                return true;}
+        }
+        System.out.println("passou aq2");
+        System.out.println("\nEsse OsID não foi encontrado.");
+        return false;}
+
+    public boolean summaryOS(){
+        ArrayList<Long> listaTempodeEspera = new ArrayList<Long>();
+        ArrayList<Long> listaTempoemServico = new ArrayList<Long>();
+        ArrayList<Double> listaValorFinal = new ArrayList<Double>();
+        ArrayList<Integer> listaSatisfacao = new ArrayList<Integer>();
+
+        for(Os os : OsList){
+            if(os.getStatus()==3){
+                listaTempodeEspera.add(os.getStarttime()-os.getCreatetime());
+                listaTempoemServico.add(os.getFinishtime()-os.getStarttime());
+                listaValorFinal.add(os.getFinalvalue());
+                listaSatisfacao.add(os.getSatisfaction());}
+            }
+        if(listaTempodeEspera.size()==0){
+            System.out.println("Não tem Os finalizada para poder realizar as médias");
+            return false;
+        }
+        //depois de ter povoado as listas:
+        Long mEspera = 0L;
+        Long mServico = 0L;
+        double valorFinal = 0;
+        int satisfacao = 0;
+        System.out.println("chegou aq 3");
+
+
+        for(int i = 0; i < listaTempodeEspera.size();i++){
+            mEspera = mEspera + listaTempodeEspera.get(i);
+            mServico = mServico + listaTempoemServico.get(i);
+            valorFinal = valorFinal + listaValorFinal.get(i);
+            satisfacao = satisfacao + listaSatisfacao.get(i);
+        }
+
+        mEspera = (mEspera/listaSatisfacao.size());
+        mServico = (mServico/listaSatisfacao.size());
+        valorFinal= (valorFinal/listaSatisfacao.size());
+        satisfacao = (satisfacao/listaSatisfacao.size());
+
+        System.out.println("\nMédias de atendimentos:\n");
+        System.out.println(mEspera/1000 +" segundos é a média de tempo de espera.");
+        System.out.println(mServico/1000 +" segundos é a média de tempo em serviço.");
+        System.out.println(valorFinal + "R$ é a média de valor final.");
+        System.out.println(satisfacao + " é a média de satisfação entre os clientes.");
+        return true;
     }
 
 }

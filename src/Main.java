@@ -3,14 +3,14 @@ import java.util.Scanner;
 
 import RepositorioOs.RepositorioOs;
 import RepositorioPessoa.RepositorioPerson;
-import RepositorioEstoque.RepositorioProduto;
+import RepositorioEstoque.RepositorioProdutoServico;
 
 
 public class Main {
     public static void main(String[] args) {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
-        RepositorioProduto rpdt = new RepositorioProduto();
+        RepositorioProdutoServico rpdt = new RepositorioProdutoServico();
 
         Scanner menu = new Scanner(System.in);
 
@@ -32,7 +32,7 @@ public class Main {
                     boolean continuar = true;
                     while (continuar) {
                         System.out.print("------------MENU ATENDENTE---------\n");
-                        System.out.print("1-Cadastrar Cliente\n2-Abrir OS\n3-Listar Clientes\n4-Listar OS\n5-Gerar pagamento\n");
+                        System.out.print("1-Cadastrar Cliente\n2-Abrir OS\n3-Listar Clientes\n4-Listar OS\n5-Gerar pagamento\n6-Cancelar OS\n");
                         System.out.print("10-Voltar para o menu principal\nDigite uma opção: ");
                         int opcaoAtendente = menuAtendente.nextInt();
                         switch (opcaoAtendente) {
@@ -50,6 +50,9 @@ public class Main {
                                 break;
                             case 5:
                                 ro.paymentOS();
+                                break;
+                            case 6:
+                                ro.cancelOS();
                                 break;
                             case 10:
                                 continuar = false;
@@ -79,21 +82,39 @@ public class Main {
                                 break;
                             case 4:
                                 rpdt.listProduct();
+                            case 5:
+                                ro.cancelOS();
                             case 10:
                                 continuar = false;
                                 break;
                         }
                     }
-                    /*
-                case 3:
-                    System.out.print("\nMENU GERENTE\n");
                     break;
+                case 3:
+                    Scanner menuGerente = new Scanner(System.in);
+                    continuar = true;
+                    while (continuar) {       /// while do atendente
+                        System.out.print("------------ MENU GERENTE ---------\n");
+                        System.out.print("1-Gerar relatório de OS\n2-Alterar estoque\n3-Alterar valor de produto\n");
+                        System.out.print("10-Voltar para o menu principal\n");
+                        System.out.print("Digite uma opção: ");
+                        int opcaoGerente = menuGerente.nextInt();
+
+                        switch (opcaoGerente) {
+                            case 1:
+                                ro.summaryOS();
+                                break;
+                            case 2:
+                                rpdt.changeStock(rpdt);
+                            case 3:
+                                rpdt.changeValue(rpdt);
+                            case 10:
+                                continuar = false;
+                                break;
+
                 default:
                     System.out.print("\nOpção Inválida!");
                     break;
 
-                     */
-
-
                     }
-            }}}
+            }}}}}
