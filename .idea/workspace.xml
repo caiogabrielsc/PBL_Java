@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Estoque totalmente implementado">
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Projeto finalizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProdutoServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +193,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681780197350</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Funções de gerente implementadas">
+      <created>1681784612742</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681784612742</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Projeto finalizado">
+      <created>1681784747230</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681784747230</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +234,8 @@
     <MESSAGE value="Tecnico pode inicar e finalizar os corretamente" />
     <MESSAGE value="Definição de tempos na OS" />
     <MESSAGE value="Estoque totalmente implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Estoque totalmente implementado" />
+    <MESSAGE value="Funções de gerente implementadas" />
+    <MESSAGE value="Projeto finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projeto finalizado" />
   </component>
 </project>

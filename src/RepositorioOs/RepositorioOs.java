@@ -10,7 +10,10 @@ import RepositorioEstoque.RepositorioProdutoServico;
 public class RepositorioOs implements IRepositorioOs {
 
     List<Os> OsList = new ArrayList<Os>();
-
+    /*
+     (Esse método cria a OS,atualmente as os são criadas com alguns inputs pré definidos para facilitar os testes
+     e a leitura do sistema)
+    */
     public boolean createOS(RepositorioPerson rp, RepositorioOs ro) {
         if (!rp.listPerson()) { //lista de pessoas vazia
             System.out.println("Logo não podemos abrir OS");
@@ -29,7 +32,9 @@ public class RepositorioOs implements IRepositorioOs {
         System.out.print("\nOS aberta.\n");
         return true;
     }
-
+    /*
+     ( método simples que salva a OS na lista inicializada acima )
+    */
     public boolean saveOS(Os os) {
         try {
             OsList.add(os);
@@ -38,7 +43,10 @@ public class RepositorioOs implements IRepositorioOs {
         }
         return true;
     }
-
+    /*
+     (  as funções a seguir foram criadas mas não estão sendo utilizadas devido a natureza de "teste" do programa
+      elas irão entrar apenas na versão final)
+    */
     public boolean editDescriptionOs(int idbuscado, String newDescription) {
         for (Os os : OsList) {
             if (os.getId() == idbuscado) {
@@ -68,11 +76,16 @@ public class RepositorioOs implements IRepositorioOs {
         }
         return false;
     }
-
+    /*
+     (  função simples que returna o tamanho da lista de os )
+    */
     public int returnLenght() {
         return OsList.size();
     }
-
+    /*
+     ( essa é uma função que percorre a lista de os imprimindo algumas informações importantes
+       é útil para a verificação das funcionalidades)
+    */
     public boolean listOs() {
         if (OsList.isEmpty() == true) {
             System.out.println("Não tem OS cadastradas");
@@ -87,7 +100,9 @@ public class RepositorioOs implements IRepositorioOs {
 
         return true;
     }
-
+    /*
+     ( função de iniciação das os, ela verifica se tem os cadastrada e se o tecnico ta ocupado e depois inicia ela  )
+    */
     public boolean startOs() {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
@@ -112,7 +127,9 @@ public class RepositorioOs implements IRepositorioOs {
         System.out.println("\nNão temos OS para serem iniciadas.");
         return false;
     }
-
+    /*
+     (  funcao de finalizaçao, ela verifica se tem os cadastrada e procura a os que esteja em andamento para finalizar )
+    */
     public boolean finalizeOS(RepositorioProdutoServico rpdt) {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
@@ -157,7 +174,9 @@ public class RepositorioOs implements IRepositorioOs {
         System.out.println("\nNão foi encontrada nenhuma OS em andamento para poder finalizar");
         return false;
     }
-
+    /*
+     (  funcao de gerar pagamento e fatura, é realizada pelo atendente e é a última função do ciclo base de criar, salvar os,iniciar e finalizar )
+    */
     public boolean paymentOS() {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
@@ -186,7 +205,9 @@ public class RepositorioOs implements IRepositorioOs {
         System.out.println("\nNão foi encontrada OS aguardando pagamento.");
         return false;
     }
-
+    /*
+     ( funcao que altera o status da o para o valor relativo a os cancelada  )
+    */
     public boolean cancelOS(){
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
@@ -204,7 +225,9 @@ public class RepositorioOs implements IRepositorioOs {
         System.out.println("passou aq2");
         System.out.println("\nEsse OsID não foi encontrado.");
         return false;}
-
+    /*
+     ( funcao realizada pelo gerente que é capaz de fazer as médias de satisfação, tempo de espera, tempo em serviço e valor final das os  )
+    */
     public boolean summaryOS(){
         ArrayList<Long> listaTempodeEspera = new ArrayList<Long>();
         ArrayList<Long> listaTempoemServico = new ArrayList<Long>();
