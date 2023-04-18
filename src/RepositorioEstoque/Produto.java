@@ -1,4 +1,4 @@
-package RepositorioProduto;
+package RepositorioEstoque;
 
 public class Produto {
     protected int id;

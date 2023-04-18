@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Definição de tempos na OS">
-      <change afterPath="$PROJECT_DIR$/src/RepositorioProduto/RepositorioProduto.java" afterDir="false" />
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Estoque totalmente implementado">
+      <change afterPath="$PROJECT_DIR$/src/RepositorioEstoque/Servico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RepositorioOs/Os.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/Os.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RepositorioProdutos/Produtos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioProduto/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioProduto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioProduto/RepositorioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProduto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681763157474</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Estoque totalmente implementado">
+      <created>1681774378447</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681774378447</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +218,7 @@
     <MESSAGE value="Desenvolvimento funções Tecnico" />
     <MESSAGE value="Tecnico pode inicar e finalizar os corretamente" />
     <MESSAGE value="Definição de tempos na OS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Definição de tempos na OS" />
+    <MESSAGE value="Estoque totalmente implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estoque totalmente implementado" />
   </component>
 </project>

@@ -4,6 +4,16 @@ import Entity.Person;
 
 
 public class Os {
+    protected  String payment;
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
     protected Person client;
 
     protected int satisfaction;
@@ -50,12 +60,13 @@ public class Os {
 
 
 
-    public Os(Person client, int id, String description, int status, double finalvalue,int satisfaction, long createtime, long starttime, long finishtime) {
+    public Os(Person client, int id, String description, int status, double finalvalue, String payment, int satisfaction, long createtime, long starttime, long finishtime) {
         this.client = client;
         this.id = id;
         this.description = description;
         this.status = status;
         this.finalvalue = finalvalue;
+        this.payment = payment;
         this.satisfaction = satisfaction;
         this.createtime = createtime;
         this.starttime = starttime;
