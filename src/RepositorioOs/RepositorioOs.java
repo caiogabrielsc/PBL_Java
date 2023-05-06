@@ -7,7 +7,7 @@ import RepositorioPessoa.RepositorioPerson;
 import RepositorioEstoque.RepositorioProdutoServico;
 
 
-public class RepositorioOs implements IRepositorioOs {
+public class RepositorioOs  {
 
     List<Os> OsList = new ArrayList<Os>();
     /*

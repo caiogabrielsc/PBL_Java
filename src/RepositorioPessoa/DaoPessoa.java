@@ -16,23 +16,19 @@ public class DaoPessoa {
         return true;
     }
 
-    public static boolean deletePerson(int id){
-        for (Person person : list){
-            if(person.getId() == id){list.remove(person);return true;}}
-        return false;
-    }
+    public static boolean deletePerson(Person p){
+        list.remove(p);
+        return true;}
 
-    public Person returnPersonById(int id){
+    public static Person returnPersonById(int id){
         for (Person person : list) {
             if (person.getId() == id) {return person;}
         }return null;
     }
 
-    public static boolean editNamePerson(int idbuscado, String newName) {
-        for (Person person : list){
-            if(person.getId() == idbuscado){person.setName(newName); return true;}
-        }
-        return false;
+    public static boolean editNamePerson(Person p, String name) {
+        p.setName(name);
+        return true;
     }
 
     public int returnLenght(){

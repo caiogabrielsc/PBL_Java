@@ -2,26 +2,51 @@ package RepositorioPessoa;
 import Entity.Client;
 import Entity.Person;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class RepositorioPerson extends DaoPessoa {
 
-    //List<Person> list = new ArrayList<Person>();
 
     public boolean createPerson(Person person){
         Client clientGenerico = new Client((returnLenght() + 1), "ClienteGenerico" + (returnLenght() + 1));
+
         DaoPessoa.savePerson(clientGenerico);
         System.out.print("\nCliente Cadastrado\n");
         return true;
     }
 
     public boolean delete(int id){
-        return DaoPessoa.deletePerson(id);
+        for (Person person : list){
+            if(person.getId() == id){DaoPessoa.deletePerson(person);
+                return true;}}
+        return false;
     }
 
-    public static boolean editNamePerson(int idbuscado, String newName) {
-       return DaoPessoa.editNamePerson(idbuscado,newName);
+    public static boolean editNamePerson() {
+        listPerson();
+        System.out.println("\nDigite o id da Pessoa que vc deseja alterar o nome:");
+        int id = ((new Scanner(System.in)).nextInt());
+        System.out.println("\nDigite o novo nome:");
+        String newname = String.valueOf(((new Scanner(System.in)).nextInt()));
+
+        DaoPessoa.editNamePerson(DaoPessoa.returnPersonById(id),newname);
+        return false;
+
+    }
+
+    public static boolean listPerson() {
+        list = DaoPessoa.retornarLista();
+        if (list.isEmpty()) {
+            System.out.println("\nNão tem clientes cadastrados.\n");
+            return false;
+        }
+        System.out.println("          Lista de clientes:");
+        for (Person person : list) {
+            System.out.println("-------------------------------------");
+            System.out.println("id:" + person.getId() + " nome:" + person.getName());
+        }
+        System.out.println("-------------------------------------\n");
+        return true;
     }
 
     // PARTE "EXTRA" DA ESTRUTURA PESSOA \/
@@ -52,20 +77,5 @@ public class RepositorioPerson extends DaoPessoa {
     }
 
      */
-
-    public  boolean listPerson() {
-        list = DaoPessoa.retornarLista();
-        if (list.isEmpty()) {
-            System.out.println("\nNão tem clientes cadastrados.\n");
-            return false;
-        }
-        System.out.println("          Lista de clientes:");
-        for (Person person : list) {
-            System.out.println("-------------------------------------");
-            System.out.println("id:" + person.getId() + " nome:" + person.getName());
-        }
-        System.out.println("-------------------------------------\n");
-        return true;
-    }
 
 }
