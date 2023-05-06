@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Projeto finalizado">
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/PersonFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RepositorioEstoque/DaoProdutoServico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RepositorioOs/DAO_Os.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RepositorioPessoa/DaoPessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProdutoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioEstoque/RepositorioProdutoServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioOs/RepositorioOs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioPessoa/IRepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/IRepositorioPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioPessoa/RepositorioPerson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +74,13 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Entity" />
       <recent name="" />
     </key>
   </component>
@@ -207,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681784747230</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Projeto finalizado - JAVADOC">
+      <created>1681786470173</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681786470173</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,6 +255,7 @@
     <MESSAGE value="Estoque totalmente implementado" />
     <MESSAGE value="Funções de gerente implementadas" />
     <MESSAGE value="Projeto finalizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projeto finalizado" />
+    <MESSAGE value="Projeto finalizado - JAVADOC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projeto finalizado - JAVADOC" />
   </component>
 </project>

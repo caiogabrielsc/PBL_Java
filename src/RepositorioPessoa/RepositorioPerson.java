@@ -5,52 +5,26 @@ import Entity.Person;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioPerson implements IRepositorioPerson {
+public class RepositorioPerson extends DaoPessoa {
 
-    List<Person> list = new ArrayList<Person>();
-
-    @Override
-    public boolean savePerson(Person person) {
-        try {
-            list.add(person);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
+    //List<Person> list = new ArrayList<Person>();
 
     public boolean createPerson(Person person){
         Client clientGenerico = new Client((returnLenght() + 1), "ClienteGenerico" + (returnLenght() + 1));
-        savePerson(clientGenerico);
+        DaoPessoa.savePerson(clientGenerico);
         System.out.print("\nCliente Cadastrado\n");
         return true;
     }
 
-    @Override
-    public int findPersonById(int id) {
-        return 0;
+    public boolean delete(int id){
+        return DaoPessoa.deletePerson(id);
     }
 
-    public boolean deletePerson(int id){
-        for (Person person : list){
-            if(person.getId() == id){list.remove(person);return true;}}
-        return false;
+    public static boolean editNamePerson(int idbuscado, String newName) {
+       return DaoPessoa.editNamePerson(idbuscado,newName);
     }
 
-    public Person returnPersonById(int id){
-        for (Person person : list) {
-            if (person.getId() == id) {return person;}
-        }return null;
-    }
-
-    @Override
-    public boolean editNamePerson(int idbuscado, String newName) {
-       for (Person person : list){
-           if(person.getId() == idbuscado){person.setName(newName); return true;}
-       }
-        return false;
-    }
-    // RESTO DA ESTRUTURA PESSOA \/
+    // PARTE "EXTRA" DA ESTRUTURA PESSOA \/
     /*
     public boolean editAgePerson(int idbuscado, String newAge) {
         for (Person person : list){
@@ -80,6 +54,7 @@ public class RepositorioPerson implements IRepositorioPerson {
      */
 
     public  boolean listPerson() {
+        list = DaoPessoa.retornarLista();
         if (list.isEmpty()) {
             System.out.println("\nNão tem clientes cadastrados.\n");
             return false;
@@ -91,10 +66,6 @@ public class RepositorioPerson implements IRepositorioPerson {
         }
         System.out.println("-------------------------------------\n");
         return true;
-    }
-
-    public int returnLenght(){
-        return list.size();
     }
 
 }

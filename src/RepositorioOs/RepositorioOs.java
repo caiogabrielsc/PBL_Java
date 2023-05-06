@@ -195,8 +195,9 @@ public class RepositorioOs implements IRepositorioOs {
                 } else {
                     os.setPayment("Cartão");};
 
-                System.out.println("Muito obrigado pelo pagamento.\nEntre 0 e 10, qual a sua nota para o serviço:");
-                int satisfacao = ((new Scanner(System.in)).nextInt());
+                //System.out.println("Muito obrigado pelo pagamento.\nEntre 0 e 10, qual a sua nota para o serviço:");
+                //int satisfacao = ((new Scanner(System.in)).nextInt());
+                int satisfacao = 10;
                 os.setSatisfaction(satisfacao);
                 System.out.println("Serviço finalizado.");
                 return true;
@@ -217,12 +218,14 @@ public class RepositorioOs implements IRepositorioOs {
         int idcancelar = ((new Scanner(System.in)).nextInt());
         for (Os os : OsList) {
             if (os.getId() == idcancelar) {
+                if(os.getStatus()==2 || os.getStatus()==3){
+                    System.out.println("\nSó podem ser canceladas OSs em espera ou em serviço.");
+                    return false;}
 
                 os.setStatus(4);
                 System.out.println("\nA OS id "+idcancelar+" teve seu status definido como cancelado.");
                 return true;}
         }
-        System.out.println("passou aq2");
         System.out.println("\nEsse OsID não foi encontrado.");
         return false;}
     /*

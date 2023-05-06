@@ -1,19 +1,27 @@
 import Entity.Client;
+import java.io.*;
 import java.util.Scanner;
-
 import RepositorioOs.RepositorioOs;
 import RepositorioPessoa.RepositorioPerson;
 import RepositorioEstoque.RepositorioProdutoServico;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
         RepositorioProdutoServico rpdt = new RepositorioProdutoServico();
 
+        rpdt.fillArraylistProduto();
+        rpdt.fillArraylistService();
+
+        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+
         Scanner menu = new Scanner(System.in);
 
+
+        // MAIN:
         while (true) {
             System.out.print("\n------------------------MENU GERAL-----------------------\n[1]-Sou Atendente.   [2]-Sou Tecnico.   [3]-Sou Gerente.\n");
             System.out.print("[10]-Sair do sistema.\nDigite uma opção: ");
@@ -76,6 +84,7 @@ public class Main {
                                 break;
                             case 4:
                                 rpdt.listProduct();
+                                break;
                             case 5:
                                 ro.cancelOS();
                             case 10:
@@ -99,10 +108,10 @@ public class Main {
                                 ro.summaryOS();
                                 break;
                             case 2:
-                                rpdt.changeStock(rpdt);
+                                rpdt.changeStock();
                                 break;
                             case 3:
-                                rpdt.changeValue(rpdt);
+                                rpdt.changeValue();
                                 break;
                             case 10:
                                 continuar = false;
@@ -114,3 +123,5 @@ public class Main {
 
                     }
             }}}}}
+
+
