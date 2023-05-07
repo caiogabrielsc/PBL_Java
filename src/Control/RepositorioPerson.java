@@ -1,6 +1,7 @@
-package RepositorioPessoa;
-import Entity.Client;
-import Entity.Person;
+package Control;
+import Modelll.DAO.DaoPessoa;
+import Modelll.Entity.Client;
+import Modelll.Entity.Person;
 
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class RepositorioPerson extends DaoPessoa {
         return true;
     }
 
-    public boolean delete(int id){
+    public boolean deletePerson(int id){
         for (Person person : list){
             if(person.getId() == id){DaoPessoa.deletePerson(person);
                 return true;}}

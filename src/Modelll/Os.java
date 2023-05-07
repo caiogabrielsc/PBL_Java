@@ -1,6 +1,6 @@
-package RepositorioOs;
+package Modelll;
 
-import Entity.Person;
+import Modelll.Entity.Person;
 
 
 public class Os {
@@ -14,7 +14,7 @@ public class Os {
         this.payment = payment;
     }
 
-    protected Person client;
+    public Person client;
 
     protected int satisfaction;
 

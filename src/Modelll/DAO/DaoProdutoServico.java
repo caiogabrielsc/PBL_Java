@@ -1,8 +1,9 @@
-package RepositorioEstoque;
+package Modelll.DAO;
+import Modelll.Produto;
+import Modelll.Servico;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class DaoProdutoServico {
 
@@ -31,7 +32,6 @@ public class DaoProdutoServico {
         ProdutoList.add(placadevideo);
         ProdutoList.add(hddssd);
     }
-
     public void fillArraylistService() {
         Servico SO = new Servico(6,"Instalar SO", 50);
         Servico programas = new Servico(7,"Instalar Programas", 10);
@@ -41,13 +41,29 @@ public class DaoProdutoServico {
         ServiceList.add(limpeza);
     }
 
+    public static void listProduct(){
+        System.out.println("    Lista de produtos:");
+        for(Produto i : ProdutoList){
+            System.out.println("---------------------------");
+            System.out.println("IdProduto:"+ i.getId() + " nome:" + i.getName() + " qtdEstoque:"+i.getQtd()+" valor:" + i.getValue());
+        }
+        System.out.println("---------------------------");
+    }
+    public static void listService(){
+        System.out.println("    Lista de Serviços:");
+        for(Servico i : ServiceList){
+            System.out.println("---------------------------");
+            System.out.println("IdServiço:"+ i.getId() + " nome:" + i.getName() + " valor:" + i.getValue());
+        }
+        System.out.println("---------------------------");
+    }
 
     public static Produto returnProdutoById(int idbuscado){
         for (Produto i : ProdutoList) {
             if (i.getId() == idbuscado) {return i;}
         }return null;
     }
-    public  Servico returnServiceById(int idbuscado){
+    public static Servico returnServiceById(int idbuscado){
         for (Servico i : ServiceList) {
             if (i.getId() == idbuscado) {return i;}
         }return null;
@@ -60,12 +76,17 @@ public class DaoProdutoServico {
 
     }
 
-     public static boolean changeValueDao(int id, int nv){
+     public static boolean changeValueProductDao(int id, int nv){
         returnProdutoById(id).setValue(nv);
         return true;
 
     }
 
+     public static boolean changeValueServiceDao(int id, int nv){
+        returnServiceById(id).setValue(nv);
+        return true;
+
+    }
 
 
 }

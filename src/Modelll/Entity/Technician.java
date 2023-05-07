@@ -1,4 +1,4 @@
-package Entity;
+package Modelll.Entity;
 
 public class Technician extends Person{
 

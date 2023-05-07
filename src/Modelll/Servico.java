@@ -1,6 +1,6 @@
-package RepositorioEstoque;
+package Modelll;
 
-public class Produto {
+public class Servico {
     protected int id;
     protected String name;
 
@@ -12,7 +12,7 @@ public class Produto {
         this.id = id;
     }
 
-    protected int qtd;
+
     protected double value;
 
 
@@ -24,14 +24,6 @@ public class Produto {
         this.name = name;
     }
 
-    public int getQtd() {
-        return qtd;
-    }
-
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
-    }
-
     public double getValue() {
         return value;
     }
@@ -40,10 +32,9 @@ public class Produto {
         this.value = value;
     }
 
-    public Produto(int id, String name, int qtd, double value) {
+    public Servico(int id, String name, double value) {
         this.id = id;
         this.name = name;
-        this.qtd = qtd;
         this.value = value;
     }
 }

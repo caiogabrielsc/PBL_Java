@@ -1,9 +1,11 @@
-import Entity.Client;
+package View;
+
+import Modelll.Entity.Client;
 import java.io.*;
 import java.util.Scanner;
-import RepositorioOs.RepositorioOs;
-import RepositorioPessoa.RepositorioPerson;
-import RepositorioEstoque.RepositorioProdutoServico;
+import Control.RepositorioOs;
+import Control.RepositorioPerson;
+import Control.RepositorioProdutoServico;
 
 
 public class Main {
@@ -11,17 +13,14 @@ public class Main {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
         RepositorioProdutoServico rpdt = new RepositorioProdutoServico();
-
         rpdt.fillArraylistProduto();
         rpdt.fillArraylistService();
 
         rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
         rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
 
-        Scanner menu = new Scanner(System.in);
-
-
         // MAIN:
+        Scanner menu = new Scanner(System.in);
         while (true) {
             System.out.print("\n------------------------MENU GERAL-----------------------\n[1]-Sou Atendente.   [2]-Sou Tecnico.   [3]-Sou Gerente.\n");
             System.out.print("[10]-Sair do sistema.\nDigite uma opção: ");
@@ -80,7 +79,7 @@ public class Main {
                                 ro.startOs();
                                 break;
                             case 3:
-                                ro.finalizeOS(rpdt);
+                                ro.finalizeOS();
                                 break;
                             case 4:
                                 rpdt.listProduct();
@@ -98,7 +97,7 @@ public class Main {
                     continuar = true;
                     while (continuar) {       /// while do atendente
                         System.out.print("------------ MENU GERENTE ---------\n");
-                        System.out.print("1-Gerar relatório de OS\n2-Alterar estoque\n3-Alterar valor de produto\n");
+                        System.out.print("1-Gerar relatório de OS\n2-Alterar estoque de produto\n3-Alterar valor de produto\n4-Alterar valor de serviço\n");
                         System.out.print("10-Voltar para o menu principal\n");
                         System.out.print("Digite uma opção: ");
                         int opcaoGerente = menuGerente.nextInt();
@@ -111,8 +110,10 @@ public class Main {
                                 rpdt.changeStock();
                                 break;
                             case 3:
-                                rpdt.changeValue();
+                                rpdt.changeValueProduct();
                                 break;
+                            case 4:
+                                rpdt.changeValueService();                                break;
                             case 10:
                                 continuar = false;
                                 break;

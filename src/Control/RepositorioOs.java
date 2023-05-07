@@ -1,15 +1,14 @@
-package RepositorioOs;
-import Entity.Person;
+package Control;
+import Modelll.DAO.DaoOs;
+import Modelll.Os;
+import Modelll.Entity.Person;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import RepositorioPessoa.RepositorioPerson;
-import RepositorioEstoque.RepositorioProdutoServico;
+import Modelll.DAO.DaoProdutoServico;
+
+public class RepositorioOs  extends DaoOs {
 
 
-public class RepositorioOs  {
-
-    List<Os> OsList = new ArrayList<Os>();
     /*
      (Esse método cria a OS,atualmente as os são criadas com alguns inputs pré definidos para facilitar os testes
      e a leitura do sistema)
@@ -35,14 +34,6 @@ public class RepositorioOs  {
     /*
      ( método simples que salva a OS na lista inicializada acima )
     */
-    public boolean saveOS(Os os) {
-        try {
-            OsList.add(os);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
     /*
      (  as funções a seguir foram criadas mas não estão sendo utilizadas devido a natureza de "teste" do programa
       elas irão entrar apenas na versão final)
@@ -116,11 +107,11 @@ public class RepositorioOs  {
         }
         for (Os os : OsList) {
             if (os.getStatus() == 0) {
-                os.setStatus(1);
-                os.setStarttime(System.currentTimeMillis());
+                // altera status aqui
+                DaoOs.startOsDao(os);
+
                 System.out.println("\nIniciada a primeira da fila, OS id:" + os.getId());
                 System.out.println("O tempo de espera foi: " + (os.getStarttime() - os.getCreatetime()) / 1000 + "segundos.");
-
                 return true;
             }
         }
@@ -130,41 +121,47 @@ public class RepositorioOs  {
     /*
      (  funcao de finalizaçao, ela verifica se tem os cadastrada e procura a os que esteja em andamento para finalizar )
     */
-    public boolean finalizeOS(RepositorioProdutoServico rpdt) {
+    public boolean finalizeOS() {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
             return false;
         }
         for (Os os : OsList) {
-            if (os.getStatus() == 1) { //procura uma os que já está em andamento
-                os.setStatus(2);
-                os.setFinishtime(System.currentTimeMillis());
+            if (os.getStatus() == 1) {//procura uma os que já está em andamento
 
                 System.out.println("\n[1]Foi utilizado um produto ou [2] realizado um serviço ?");
                 int opcao = ((new Scanner(System.in)).nextInt());
                 if (opcao == 1) {  //se for produto
-                    rpdt.listProduct();
+                    DaoProdutoServico.listProduct();
                     System.out.println("\nDigite o id do produto que vc utilizou nessa OS:");
                     int idProduto = ((new Scanner(System.in)).nextInt());
 
-                    // SETA O VALOR FINAL E REDUZ O ESTOQUE EM UMA UNIDADE
-                    if(rpdt.returnProdutoById(idProduto).getQtd() == 0){
+                    if(DaoProdutoServico.returnProdutoById(idProduto).getQtd() == 0){
                         System.out.println("Provavelmente vc não usou esse produto pq n tem ele no estoque.");
                         return false;
                     }
-                    os.setFinalvalue(rpdt.returnProdutoById(idProduto).getValue());
-                    int novaqtd = (rpdt.returnProdutoById(idProduto).getQtd() - 1);
-                    rpdt.returnProdutoById(idProduto).setQtd(novaqtd);
-                    System.out.println("\nAgora tem " + rpdt.returnProdutoById(idProduto).getQtd() + "un desse produto no estoque.");
-                    if((rpdt.returnProdutoById(idProduto).getQtd() < 3)){
+
+                    // finaliza a OS e seta o valor final
+                    double value =  DaoProdutoServico.returnProdutoById(idProduto).getValue();
+                    DaoOs.finalizeOsDao(os, value);
+
+                    // altera a quantidade do produto na lista via M.Modelll.DAO
+                    int novaqtd = (DaoProdutoServico.returnProdutoById(idProduto).getQtd() - 1);
+                    DaoProdutoServico.returnProdutoById(idProduto).setQtd(novaqtd);
+                    System.out.println("\nAgora tem " + DaoProdutoServico.returnProdutoById(idProduto).getQtd() + "un desse produto no estoque.");
+
+                    //checa se o estoque está baixo e gera aviso
+                    if((DaoProdutoServico.returnProdutoById(idProduto).getQtd() < 3)){
                         System.out.println("O estoque desse produto está acabando, o Gerente deve repor!");}
 
                 } else {
-                    rpdt.listService();
+                    DaoProdutoServico.listService();
                     System.out.println("\nDigite o id do Serviço que vc utilizou nessa OS:");
                     int idServico = ((new Scanner(System.in)).nextInt());
-                    os.setFinalvalue(rpdt.returnServiceById(idServico).getValue());
+                    double value = DaoProdutoServico.returnServiceById(idServico).getValue();
+                    DaoOs.finalizeOsDao(os, value);
                 }
+
                 System.out.println("Finalizada a OS com ID " + os.getId() + ", tecnico está disponível.");
                 System.out.println("Para realizar o pagamento de R$" + os.getFinalvalue() + " o Atendente deve gerar fatura.");
                 System.out.println("O tempo de duração do serviço foi: " + (os.getFinishtime() - os.getStarttime()) / 1000 + "segundos.");
@@ -184,22 +181,23 @@ public class RepositorioOs  {
         }
         for (Os os : OsList) {
             if (os.getStatus() == 2) {
-                os.setStatus(3);
+
                 System.out.println("\nEncontrada a OS id:" + os.getId() + " aguardando pagamento.");
                 System.out.println("O valor a ser pago é: RS" + os.getFinalvalue());
                 System.out.println("Qual será a forma de pagamento ?\n1-Dinheiro ou 2-Cartão");
 
+                String pagamento;
                 int opcao = ((new Scanner(System.in)).nextInt());
                 if (opcao == 1) {
-                    os.setPayment("Dinheiro");
+                    pagamento = "Dinheiro";
                 } else {
-                    os.setPayment("Cartão");};
+                    pagamento = "Cartão";};
 
                 //System.out.println("Muito obrigado pelo pagamento.\nEntre 0 e 10, qual a sua nota para o serviço:");
                 //int satisfacao = ((new Scanner(System.in)).nextInt());
                 int satisfacao = 10;
-                os.setSatisfaction(satisfacao);
-                System.out.println("Serviço finalizado.");
+                DaoOs.paymantOsDao(os,pagamento,satisfacao,3);
+                System.out.println("Pagamento feito e serviço finalizado, muito obrigado.");
                 return true;
             }
         }
@@ -222,7 +220,8 @@ public class RepositorioOs  {
                     System.out.println("\nSó podem ser canceladas OSs em espera ou em serviço.");
                     return false;}
 
-                os.setStatus(4);
+
+                DaoOs.cancelOsDao(os);
                 System.out.println("\nA OS id "+idcancelar+" teve seu status definido como cancelado.");
                 return true;}
         }
@@ -253,8 +252,6 @@ public class RepositorioOs  {
         Long mServico = 0L;
         double valorFinal = 0;
         int satisfacao = 0;
-        System.out.println("chegou aq 3");
-
 
         for(int i = 0; i < listaTempodeEspera.size();i++){
             mEspera = mEspera + listaTempodeEspera.get(i);
@@ -262,7 +259,6 @@ public class RepositorioOs  {
             valorFinal = valorFinal + listaValorFinal.get(i);
             satisfacao = satisfacao + listaSatisfacao.get(i);
         }
-
         mEspera = (mEspera/listaSatisfacao.size());
         mServico = (mServico/listaSatisfacao.size());
         valorFinal= (valorFinal/listaSatisfacao.size());
@@ -271,7 +267,7 @@ public class RepositorioOs  {
         System.out.println("\nMédias de atendimentos:\n");
         System.out.println(mEspera/1000 +" segundos é a média de tempo de espera.");
         System.out.println(mServico/1000 +" segundos é a média de tempo em serviço.");
-        System.out.println(valorFinal + "R$ é a média de valor final.");
+        System.out.println(valorFinal + "R$ é a média de valor final para os serviços.");
         System.out.println(satisfacao + " é a média de satisfação entre os clientes.");
         return true;
     }

@@ -1,10 +1,10 @@
-package Entity;
+package Modelll.Entity;
 
-public class Client extends Person{
+public class Attendant extends Person{
 
     private String password;
 
-    public Client(int id, String name) {
+    public Attendant(int id, String name) {
         super(id, name);
     }
 

@@ -1,11 +1,11 @@
-package RepositorioPessoa;
-import Entity.Person;
+package Modelll.DAO;
+import Modelll.Entity.Person;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DaoPessoa {
     // ARMAZENAMENTO É FEITO AQUI
-    static List<Person> list = new ArrayList<Person>();
+    protected static List<Person> list = new ArrayList<Person>();
 
     public static boolean savePerson(Person person) {
         try {
