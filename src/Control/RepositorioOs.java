@@ -1,7 +1,10 @@
 package Control;
 import Modelll.DAO.DaoOs;
+import Modelll.DAO.DaoPessoa;
 import Modelll.Os;
 import Modelll.Entity.Person;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Modelll.DAO.DaoProdutoServico;
@@ -13,7 +16,7 @@ public class RepositorioOs  extends DaoOs {
      (Esse método cria a OS,atualmente as os são criadas com alguns inputs pré definidos para facilitar os testes
      e a leitura do sistema)
     */
-    public boolean createOS(RepositorioPerson rp, RepositorioOs ro) {
+    public boolean createOS(RepositorioPerson rp, RepositorioOs ro) throws IOException, ClassNotFoundException {
         if (!rp.listPerson()) { //lista de pessoas vazia
             System.out.println("Logo não podemos abrir OS");
             return false;};
@@ -21,12 +24,12 @@ public class RepositorioOs  extends DaoOs {
         Scanner idbuscado = new Scanner(System.in);
         int num = idbuscado.nextInt();
 
-        if (rp.returnPersonById(num) == null) {
+        if (rp.returnPersonByIdFile(num) == null) {
             System.out.println("Não tem esse cliente na lista\n");
             return false;
         }
 
-        Os os = new Os((rp.returnPersonById(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0, "", 0, System.currentTimeMillis(), 0, 0);
+        Os os = new Os((rp.returnPersonByIdFile(num)), (ro.returnLenght() + 1), "trocar placa mae", 0, 0, "", 0, System.currentTimeMillis(), 0, 0);
         saveOS(os);
         System.out.print("\nOS aberta.\n");
         return true;

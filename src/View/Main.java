@@ -1,24 +1,38 @@
 package View;
 
+import Modelll.DAO.DaoPessoa;
 import Modelll.Entity.Client;
 import java.io.*;
 import java.util.Scanner;
 import Control.RepositorioOs;
 import Control.RepositorioPerson;
 import Control.RepositorioProdutoServico;
+import Modelll.Entity.Person;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
         RepositorioProdutoServico rpdt = new RepositorioProdutoServico();
         rpdt.fillArraylistProduto();
         rpdt.fillArraylistService();
 
-        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
-        rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+        /*
+        DaoPessoa.zerarArquivo();
 
+        DaoPessoa.savePersonFile(new Person((1), "caio"));
+        DaoPessoa.savePersonFile(new Person((2), "lara"));
+        DaoPessoa.listPersonFile();
+        DaoPessoa.deletePersonFile(1);
+        DaoPessoa.deletePersonFile(2);
+        DaoPessoa.listPersonFile();
+
+         */
+
+
+        rp.createPerson(new Client((rp.returnLenghtFile() + 1), "ClienteGenerico" + (rp.returnLenghtFile() + 1)));
+        rp.createPerson(new Client((rp.returnLenghtFile() + 1), "ClienteGenerico" + (rp.returnLenghtFile() + 1)));
         // MAIN:
         Scanner menu = new Scanner(System.in);
         while (true) {
@@ -38,7 +52,7 @@ public class Main {
                         int opcaoAtendente = menuAtendente.nextInt();
                         switch (opcaoAtendente) {
                             case 1:
-                                rp.createPerson(new Client((rp.returnLenght() + 1), "ClienteGenerico" + (rp.returnLenght() + 1)));
+                                rp.createPerson(new Client((rp.returnLenghtFile() + 1), "ClienteGenerico" + (rp.returnLenghtFile() + 1)));
                                 break;
                             case 2:
                                 ro.createOS(rp,ro);

@@ -1,6 +1,8 @@
 package Modelll.Entity;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 
     protected int id;
     protected String name;
