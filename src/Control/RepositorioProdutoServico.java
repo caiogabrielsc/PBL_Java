@@ -1,12 +1,11 @@
 package Control;
-
 import Modelll.DAO.DaoProdutoServico;
-
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RepositorioProdutoServico extends DaoProdutoServico {
 
-    public boolean changeStock(){
+    public boolean changeStock() throws IOException, ClassNotFoundException {
         listProduct();
         System.out.println("\nDigite o id do produto que vc deseja alterar o estoque:");
         int idProduto = ((new Scanner(System.in)).nextInt());
@@ -20,7 +19,7 @@ public class RepositorioProdutoServico extends DaoProdutoServico {
 
     }
 
-    public boolean changeValueProduct(){
+    public boolean changeValueProduct() throws IOException, ClassNotFoundException {
         listProduct();
         System.out.println("\nDigite o id do produto que vc deseja alterar o preço:");
         int idProduto = ((new Scanner(System.in)).nextInt());
@@ -34,8 +33,8 @@ public class RepositorioProdutoServico extends DaoProdutoServico {
 
     }
 
-    public boolean changeValueService(){
-        listProduct();
+    public boolean changeValueService() throws IOException, ClassNotFoundException {
+        listService();
         System.out.println("\nDigite o id do serviço que vc deseja alterar o preço:");
         int id = ((new Scanner(System.in)).nextInt());
         System.out.println("\nDigite o novo valor do serviço:");

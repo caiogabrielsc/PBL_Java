@@ -15,7 +15,7 @@ import Modelll.Entity.Person;
 
             try {
                 // criar um ObjectOutputStream
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("dados.bin"));
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("product.bin"));
                 // gravar o objeto no arquivo
                 //list.add(p1);
                 oos.writeObject(list);

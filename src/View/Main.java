@@ -1,34 +1,29 @@
 package View;
 
 import Modelll.DAO.DaoPessoa;
+import Modelll.DAO.DaoProdutoServico;
 import Modelll.Entity.Client;
 import java.io.*;
 import java.util.Scanner;
 import Control.RepositorioOs;
 import Control.RepositorioPerson;
 import Control.RepositorioProdutoServico;
-import Modelll.Entity.Person;
-
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // TENTAR TIRAR ISSO AQUI
         RepositorioPerson rp = new RepositorioPerson();
         RepositorioOs ro = new RepositorioOs();
         RepositorioProdutoServico rpdt = new RepositorioProdutoServico();
-        rpdt.fillArraylistProduto();
-        rpdt.fillArraylistService();
 
-        /*
         DaoPessoa.zerarArquivo();
+        if(DaoProdutoServico.retornarListaProduto().isEmpty()){
+            DaoProdutoServico.fillArraylistProduto();
+        }
+        if(DaoProdutoServico.retornarListaServico().isEmpty()){
+            DaoProdutoServico.fillArraylistProduto();
+        }
 
-        DaoPessoa.savePersonFile(new Person((1), "caio"));
-        DaoPessoa.savePersonFile(new Person((2), "lara"));
-        DaoPessoa.listPersonFile();
-        DaoPessoa.deletePersonFile(1);
-        DaoPessoa.deletePersonFile(2);
-        DaoPessoa.listPersonFile();
-
-         */
 
 
         rp.createPerson(new Client((rp.returnLenghtFile() + 1), "ClienteGenerico" + (rp.returnLenghtFile() + 1)));
@@ -96,7 +91,7 @@ public class Main {
                                 ro.finalizeOS();
                                 break;
                             case 4:
-                                rpdt.listProduct();
+                                DaoProdutoServico.listProduct();
                                 break;
                             case 5:
                                 ro.cancelOS();

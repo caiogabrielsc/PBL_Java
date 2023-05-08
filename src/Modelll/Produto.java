@@ -1,6 +1,10 @@
 package Modelll;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     protected int id;
     protected String name;
 

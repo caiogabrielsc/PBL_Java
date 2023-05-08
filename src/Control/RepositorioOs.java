@@ -124,7 +124,7 @@ public class RepositorioOs  extends DaoOs {
     /*
      (  funcao de finalizaçao, ela verifica se tem os cadastrada e procura a os que esteja em andamento para finalizar )
     */
-    public boolean finalizeOS() {
+    public boolean finalizeOS() throws IOException, ClassNotFoundException {
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
             return false;

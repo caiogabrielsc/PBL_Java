@@ -1,6 +1,8 @@
 package Modelll;
 
-public class Servico {
+import java.io.Serializable;
+
+public class Servico implements Serializable {
     protected int id;
     protected String name;
 
@@ -32,7 +34,7 @@ public class Servico {
         this.value = value;
     }
 
-    public Servico(int id, String name, double value) {
+    public Servico (int id, String name, double value) {
         this.id = id;
         this.name = name;
         this.value = value;
