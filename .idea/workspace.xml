@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Salvamento por arquivo da estrutura Person">
-      <change afterPath="$PROJECT_DIR$/service.bin" afterDir="false" />
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Salvamento por arquivo da estrutura do Estoque">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dados.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RepositorioOs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/RepositorioProdutoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RepositorioProdutoServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/DaoPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/DaoPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/DaoProdutoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/DaoProdutoServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelll/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelll/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/Servico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ExemploSerializacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ExemploSerializacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +36,18 @@
     </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "author": "caiogabrielsc"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN",
+    "author": "caiogabrielsc"
   }
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -298,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683516832583</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Salvamento por arquivo da estrutura do Estoque">
+      <created>1683522280207</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683522280208</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,7 +310,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -332,6 +348,7 @@
     <MESSAGE value="Imp DAO Pessoa" />
     <MESSAGE value="Estrutura MVC + Dao" />
     <MESSAGE value="Salvamento por arquivo da estrutura Person" />
-    <option name="LAST_COMMIT_MESSAGE" value="Salvamento por arquivo da estrutura Person" />
+    <MESSAGE value="Salvamento por arquivo da estrutura do Estoque" />
+    <option name="LAST_COMMIT_MESSAGE" value="Salvamento por arquivo da estrutura do Estoque" />
   </component>
 </project>
