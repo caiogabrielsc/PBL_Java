@@ -2,8 +2,10 @@ package Modelll;
 
 import Modelll.Entity.Person;
 
+import java.io.Serializable;
 
-public class Os {
+
+public class Os implements Serializable {
     protected  String payment;
 
     public String getPayment() {

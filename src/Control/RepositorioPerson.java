@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class RepositorioPerson extends DaoPessoa {
 
-    public boolean createPerson(Person person){
+    public static boolean createPerson(Person person){
         Client clientGenerico = new Client((returnLenghtFile() + 1), "ClienteGenerico" + (returnLenghtFile() + 1));
         DaoPessoa.savePersonFile(clientGenerico);
         System.out.print("\nCliente Cadastrado\n");
@@ -36,8 +36,8 @@ public class RepositorioPerson extends DaoPessoa {
 
     }
 
-    public static boolean listPerson() {
-        List<Person> lista = DaoPessoa.returnlistFile();
+    /*
+    public static boolean listPerson(List<Person> lista) {
         if (lista.isEmpty()) {
             System.out.println("\nNão tem clientes cadastrados.\n");
             return false;
@@ -50,6 +50,8 @@ public class RepositorioPerson extends DaoPessoa {
         System.out.println("-------------------------------------\n");
         return true;
     }
+
+     */
 
     // PARTE "EXTRA" DA ESTRUTURA PESSOA \/
     /*

@@ -52,7 +52,7 @@ public class DaoProdutoServico {
         } catch (IOException e) {e.printStackTrace();}
         return true;
     }
-    public static void fillArraylistService() {
+    public static boolean fillArraylistService() {
         try {
             /*
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("service.bin"));
@@ -71,7 +71,7 @@ public class DaoProdutoServico {
             oos.writeObject(listFile);
             oos.close();
         } catch (IOException e) {e.printStackTrace();}
-
+    return true;
     }
 
     public static void listProduct() throws IOException, ClassNotFoundException {

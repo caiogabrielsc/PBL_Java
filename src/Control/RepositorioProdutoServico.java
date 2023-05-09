@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RepositorioProdutoServico extends DaoProdutoServico {
 
-    public boolean changeStock() throws IOException, ClassNotFoundException {
+    public static boolean changeStock() throws IOException, ClassNotFoundException {
         listProduct();
         System.out.println("\nDigite o id do produto que vc deseja alterar o estoque:");
         int idProduto = ((new Scanner(System.in)).nextInt());
@@ -19,7 +19,7 @@ public class RepositorioProdutoServico extends DaoProdutoServico {
 
     }
 
-    public boolean changeValueProduct() throws IOException, ClassNotFoundException {
+    public static boolean changeValueProduct() throws IOException, ClassNotFoundException {
         listProduct();
         System.out.println("\nDigite o id do produto que vc deseja alterar o preço:");
         int idProduto = ((new Scanner(System.in)).nextInt());
@@ -33,7 +33,7 @@ public class RepositorioProdutoServico extends DaoProdutoServico {
 
     }
 
-    public boolean changeValueService() throws IOException, ClassNotFoundException {
+    public static boolean changeValueService() throws IOException, ClassNotFoundException {
         listService();
         System.out.println("\nDigite o id do serviço que vc deseja alterar o preço:");
         int id = ((new Scanner(System.in)).nextInt());

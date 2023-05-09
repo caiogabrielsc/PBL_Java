@@ -7,11 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DaoPessoa {
+
     public static boolean listPersonFile() throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("person.bin"));
         List<Person> listFile = (List<Person>) ois.readObject();
-        RepositorioPerson.listPerson();
         ois.close();
+
+
+        if (listFile.isEmpty()) {
+            System.out.println("\nNão tem clientes cadastrados.\n");
+            return false;
+        }
+        System.out.println("          Lista de clientes:");
+        for (Person person : listFile) {
+            System.out.println("-------------------------------------");
+            System.out.println("id:" + person.getId() + " nome:" + person.getName());
+        }
+        System.out.println("-------------------------------------\n");
         return true;
     }
 
@@ -30,7 +42,6 @@ public class DaoPessoa {
             ois.close();
 
             listFile.add(p);
-            //listFile.remove(p);
 
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("person.bin"));
             oos.writeObject(listFile);
@@ -90,7 +101,7 @@ public class DaoPessoa {
         return true;
     }
 
-    public int returnLenghtFile(){
+    public static int returnLenghtFile(){
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("person.bin"));
             List<Person> listFile = (List<Person>) ois.readObject();
