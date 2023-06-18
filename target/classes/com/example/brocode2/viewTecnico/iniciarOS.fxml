@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.brocode2.controllerTecnico.IniciarOsController">
+    <children>
+        <Label layoutX="28.0" layoutY="34.0" prefHeight="27.0" prefWidth="389.0" text="Iniciação de OS:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="voltarBtn" layoutX="386.0" layoutY="342.0" mnemonicParsing="false" onAction="#telaTecnico" text="Voltar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+        <Label fx:id="labelConfirmacao" layoutX="43.0" layoutY="142.0" prefHeight="191.0" prefWidth="403.0" text="   ">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+      <Button fx:id="voltarBtn1" layoutX="35.0" layoutY="89.0" mnemonicParsing="false" onAction="#iniciarOs" text="Iniciar Primeira OS da fila" />
+    </children>
+</AnchorPane>
