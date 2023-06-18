@@ -1,12 +1,34 @@
 package Modelll;
 
+import Modelll.Entity.Attendant;
 import Modelll.Entity.Person;
+import Modelll.Entity.Technician;
 
 import java.io.Serializable;
 
 
 public class Os implements Serializable {
     protected  String payment;
+
+    protected Technician technician;
+
+    public Technician getTechnician() {
+        return technician;
+    }
+
+    public void setTechnician(Technician technician) {
+        this.technician = technician;
+    }
+
+    public Attendant getAttendant() {
+        return attendant;
+    }
+
+    public void setAttendant(Attendant attendant) {
+        this.attendant = attendant;
+    }
+
+    protected Attendant attendant;
 
     public String getPayment() {
         return payment;
@@ -61,9 +83,10 @@ public class Os implements Serializable {
     }
 
 
-
-    public Os(Person client, int id, String description, int status, double finalvalue, String payment, int satisfaction, long createtime, long starttime, long finishtime) {
+    public Os(Person client,Attendant attendant, Technician technician, int id, String description, int status, double finalvalue, String payment, int satisfaction, long createtime, long starttime, long finishtime) {
         this.client = client;
+        this.attendant = attendant;
+        this.technician = technician;
         this.id = id;
         this.description = description;
         this.status = status;

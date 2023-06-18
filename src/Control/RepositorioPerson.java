@@ -1,18 +1,33 @@
 package Control;
 import Modelll.DAO.DaoPessoa;
+import Modelll.Entity.Attendant;
 import Modelll.Entity.Client;
 import Modelll.Entity.Person;
+import Modelll.Entity.Technician;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class RepositorioPerson extends DaoPessoa {
 
-    public static boolean createPerson(Person person){
-        Client clientGenerico = new Client((returnLenghtFile() + 1), "ClienteGenerico" + (returnLenghtFile() + 1));
+    public static boolean createClient(int id, String name){
+        Client clientGenerico = new Client(id, name);
         DaoPessoa.savePersonFile(clientGenerico);
         System.out.print("\nCliente Cadastrado\n");
+        return true;
+    }
+
+    public static boolean createTechnician(int id, String name){
+        Technician technicianGenerico = new Technician(id, name);
+        DaoPessoa.saveTechnicianFile(technicianGenerico);
+        System.out.print("\nTecnico Cadastrado\n");
+        return true;
+    }
+
+    public static boolean createAttendant(int id, String name, String PW){
+        Attendant AttendantGenerico = new Attendant(id, name, PW);
+        DaoPessoa.saveAttendantFile(AttendantGenerico);
+        System.out.print("\nAtendente Cadastrado\n");
         return true;
     }
 

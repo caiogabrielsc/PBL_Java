@@ -1,6 +1,8 @@
 package Control;
 import Modelll.DAO.DaoOs;
 import Modelll.DAO.DaoPessoa;
+import Modelll.Entity.Attendant;
+import Modelll.Entity.Technician;
 import Modelll.Os;
 import Modelll.Entity.Person;
 
@@ -14,7 +16,7 @@ import Modelll.DAO.DaoProdutoServico;
 
 public class RepositorioOs  extends DaoOs {
 
-    public static boolean createOS() throws IOException, ClassNotFoundException {
+    public static boolean createOS(Attendant user) throws IOException, ClassNotFoundException {
         if ((DaoPessoa.returnlistFile().isEmpty())) { //lista de pessoas vazia
             System.out.println("Sem clientes, logo não podemos abrir OS");
             return false;};
@@ -29,7 +31,7 @@ public class RepositorioOs  extends DaoOs {
             return false;
         }
 
-        Os os = new Os((DaoPessoa.returnPersonByIdFile(num)), (returnLenght() + 1), "trocar placa mae", 0, 0, "", 0, System.currentTimeMillis(), 0, 0);
+        Os os = new Os((DaoPessoa.returnPersonByIdFile(num)),user,null, (returnLenght() + 1), "trocar placa mae", 0, 0, "", 0, System.currentTimeMillis(), 0, 0);
         saveOsFile(os);
         System.out.print("\nOS aberta.\n");
         return true;
@@ -44,7 +46,7 @@ public class RepositorioOs  extends DaoOs {
         return true;
     }
 
-    public static boolean startOs() throws IOException, ClassNotFoundException {
+    public static boolean startOs(Technician user) throws IOException, ClassNotFoundException {
         List<Os> OsList = returnListOsFile();
         if (OsList.isEmpty()) {
             System.out.println("\nNão temos OS cadastradas\n");
@@ -62,7 +64,7 @@ public class RepositorioOs  extends DaoOs {
             if (os.getStatus() == 0) {
                 System.out.println("\nIniciada a primeira da fila, OS id:" + os.getId());
                 System.out.println("O tempo de espera foi: " + (System.currentTimeMillis() - os.getCreatetime()) / 1000 + " segundos.");
-                DaoOs.startOsDaoFile(os.getId());
+                DaoOs.startOsDaoFile(os.getId(), user);
                 return true;
             }
         }

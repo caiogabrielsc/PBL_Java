@@ -1,6 +1,7 @@
 package Modelll.DAO;
 
 import Modelll.Entity.Person;
+import Modelll.Entity.Technician;
 import Modelll.Os;
 
 import java.io.*;
@@ -32,7 +33,7 @@ public class DaoOs {
         return true;
     }
 
-    public static boolean startOsDaoFile(int id) throws IOException, ClassNotFoundException {
+    public static boolean startOsDaoFile(int id, Technician user) throws IOException, ClassNotFoundException {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("os.bin"));
         List<Os> listFile = (List<Os>) ois.readObject();
         ois.close();
@@ -40,6 +41,7 @@ public class DaoOs {
         for (Os os : listFile) {
             if (os.getId() == id) {
                 os.setStatus(1);
+                os.setTechnician(user);
                 os.setStarttime(System.currentTimeMillis());
             }
         }
@@ -116,7 +118,7 @@ public class DaoOs {
         System.out.println("            Lista de OS:");
         for (Os os : listFile) {
             System.out.println("---------------------------------------------------------------");
-            System.out.println("idOs:" + os.getId() + " | cliente:" + os.client.getName() + " | status:" + os.getStatus());
+            System.out.println("idOs:" + os.getId() + " | cliente:" + os.client.getName() + " | status:" + os.getStatus() + " | tecnico:"+os.getTechnician().getName());
         }
         System.out.println("---------------------------------------------------------------\n");
 

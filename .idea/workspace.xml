@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Salvamento por arquivo da estrutura do Estoque">
-      <change afterPath="$PROJECT_DIR$/src/View/IniciaTodosOsArquivosSemDados.java" afterDir="false" />
+    <list default="true" id="cc8908ec-b54d-4296-a65a-eb057db18b93" name="Changes" comment="Salvamento por arquivo da estrutura das OS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.bin" beforeDir="false" afterPath="$PROJECT_DIR$/service.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/RepositorioOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RepositorioOs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/RepositorioPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RepositorioPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/RepositorioProdutoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RepositorioProdutoServico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/DaoOs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/DaoOs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/DaoPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/DaoPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/DaoProdutoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/DaoProdutoServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelll/DAO/IniciaTodosOsArquivosSemDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/DAO/IniciaTodosOsArquivosSemDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelll/Entity/Attendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/Entity/Attendant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelll/Os.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelll/Os.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ExemploAbrirSerializacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ExemploSerializacao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -326,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683523266928</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Salvamento por arquivo da estrutura das OS">
+      <created>1683599530260</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683599530260</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -373,6 +377,18 @@
     <MESSAGE value="Estrutura MVC + Dao" />
     <MESSAGE value="Salvamento por arquivo da estrutura Person" />
     <MESSAGE value="Salvamento por arquivo da estrutura do Estoque" />
-    <option name="LAST_COMMIT_MESSAGE" value="Salvamento por arquivo da estrutura do Estoque" />
+    <MESSAGE value="Salvamento por arquivo da estrutura das OS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Salvamento por arquivo da estrutura das OS" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/RepositorioOs.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

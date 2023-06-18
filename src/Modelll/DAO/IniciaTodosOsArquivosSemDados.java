@@ -3,7 +3,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Modelll.Entity.Attendant;
 import Modelll.Entity.Person;
+import Modelll.Entity.Technician;
 import Modelll.Os;
 import Modelll.Produto;
 import Modelll.Servico;
@@ -66,6 +68,49 @@ public class IniciaTodosOsArquivosSemDados {
                     e.printStackTrace();
                 }
             }
+
+            File technician = new File("technician.bin");
+            if (!(technician.exists())) {
+                List<Technician> listTechnician = new ArrayList<Technician>();
+                try {
+                    ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream("technician.bin"));
+                    oos2.writeObject(listTechnician);
+                    oos2.close();
+                    System.out.println("O arquivo necessário para os tecnicos não existia mas foi criado.");
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            File attendant = new File("attendant.bin");
+            if (!(attendant.exists())) {
+                List<Attendant> listAttendant = new ArrayList<Attendant>();
+                try {
+                    ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream("attendant.bin"));
+                    oos2.writeObject(listAttendant);
+                    oos2.close();
+                    System.out.println("O arquivo necessário para os atendentes não existia mas foi criado.");
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            File manager = new File("manager.bin");
+            if (!(manager.exists())) {
+                List<Person> listManager = new ArrayList<Person>();
+                try {
+                    ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream("manager.bin"));
+                    oos2.writeObject(listManager);
+                    oos2.close();
+                    System.out.println("O arquivo necessário para os gerentes não existia mas foi criado.");
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
             System.out.println("Todos os arquivos necessários presentes!");
         }
 

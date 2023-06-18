@@ -1,6 +1,8 @@
 package Modelll.DAO;
 import Control.RepositorioPerson;
+import Modelll.Entity.Attendant;
 import Modelll.Entity.Person;
+import Modelll.Entity.Technician;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -120,6 +122,88 @@ public class DaoPessoa {
         }catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
         return null;
     }
+
+
+
+
+
+    public static Technician technicianLogin(int id){
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("technician.bin"));
+            List<Technician> listFile = (List<Technician>) ois.readObject();
+            ois.close();
+
+            for (Technician p : listFile){
+                // ta procurando só pelo ID e dá mensagem de confirmação
+                if(p.getId()== id){
+                    System.out.println("nome:" + p.getName() + "id:" + p.getId());
+                    System.out.println("esse tecnico foi encontrado  e o login foi feito.");
+                    return p;}}
+            System.out.println("esse tecnico não foi encontrada.");
+
+            // aqui tem que ter um loop lá na main que não deixa continuar
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("technician.bin"));
+            oos.writeObject(listFile);
+            oos.close();
+        } catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
+        return null;
+
+    }
+    public static boolean saveTechnicianFile(Technician p){
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("technician.bin"));
+            List<Technician> listFile = (List<Technician>) ois.readObject();
+            ois.close();
+
+            listFile.add(p);
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("technician.bin"));
+            oos.writeObject(listFile);
+            oos.close();
+        } catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
+        return true;
+    }
+
+
+    public static Attendant AttendantLogin(int id, String PS){
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("attendant.bin"));
+            List<Attendant> listFile = (List<Attendant>) ois.readObject();
+            ois.close();
+
+            for (Attendant p : listFile){
+                // ta procurando só pelo ID e dá mensagem de confirmação
+                if(p.getId()== id){
+                    System.out.println("nome:" + p.getName() + "id:" + p.getId());
+                    System.out.println("esse atendente foi encontrado  e o login foi feito.");
+                    return p;}}
+            System.out.println("esse atendente não foi encontrada.");
+
+            // aqui tem que ter um loop lá na main que não deixa continuar
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("attendant.bin"));
+            oos.writeObject(listFile);
+            oos.close();
+        } catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
+        return null;
+
+    }
+    public static boolean saveAttendantFile(Attendant p){
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("attendant.bin"));
+            List<Attendant> listFile = (List<Attendant>) ois.readObject();
+            ois.close();
+
+            listFile.add(p);
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("attendant.bin"));
+            oos.writeObject(listFile);
+            oos.close();
+        } catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
+        return true;
+    }
+
 
 
 }
